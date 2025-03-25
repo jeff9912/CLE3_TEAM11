@@ -3,6 +3,7 @@
 
 * {
     margin: auto;
+    color: black;
 }
 
 /* verwijdert random witruimte overal */
@@ -24,16 +25,22 @@ body {
     height: 10vh;
     width: 85vw;
     border-style: solid;
+    text-decoration: none;
 }
 
 /* dit target alleen de vertrek en eindbestemming a'tjes */
+
+
+.vertrek_eind a:hover {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)
+}
 
 #pijltjes_vertrek_eind {
     height: 15vh;
 }
 
 .tijd_sectie {
-    padding-top: 5vh;
+    padding-top: 8vh;
     display: flex;
     flex-direction: column;
 }
@@ -46,7 +53,21 @@ body {
 }
 
 .tijd_sectie input {
-    margin-top: 3vh;
-    width: 20vw;
+    margin-top: 1vh;
+    width: 40vw;
     height: 5vh;
+}
+
+@media (prefers-color-scheme: dark) {
+    * {
+        background-color: #444444;
+        color: white;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    * {
+        background-color: #EAEAEA;
+        color: black;
+    }
 }
