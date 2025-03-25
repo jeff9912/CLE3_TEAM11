@@ -10,14 +10,23 @@
 <body>
 <header> <!-- website heeft geen header (voor nu) --> </header>
 <main>
-    <section class="center_container vertrek_eind">
-        <a href="#"> Vertrekpunt </a>
+
+    <section> <!-- sectie over vertrek/eindpunt -->
+        <section class="center_container vertrek_eind">
+            <a href="#"> Vertrekpunt </a>
+        </section>
+        <div class="center_container">
+            <img src="images/arrows1_transparant.png" alt="Afbeelding van vertrek naar eindbestemming"
+                 id="pijltjes_vertrek_eind">
+        </div>
+        <section class="center_container vertrek_eind">
+            <a href="#"> Eindbestemming </a>
+        </section>
     </section>
-    <div class="center_container">
-        <img src="images/arrows1.png" alt="Afbeelding van vertrek naar eindbestemming" id="pijltjes_vertrek_eind">
-    </div>
-    <section class="center_container vertrek_eind">
-        <a href="#"> Eindbestemming </a>
+
+    <section class="center_container tijd_sectie"> <!-- sectie over tijd invulveld -->
+        <label for="tijd"> Tijd: </label>
+        <input id="tijd" name="tijd" type="time">
     </section>
 </main>
 </body>

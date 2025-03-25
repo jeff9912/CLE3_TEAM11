@@ -8,7 +8,7 @@
 /* verwijdert random witruimte overal */
 
 body {
-    padding: 4vh 0;
+    padding: 2vh 0;
 }
 
 
@@ -21,7 +21,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15vh;
+    height: 10vh;
     width: 85vw;
     border-style: solid;
 }
@@ -29,5 +29,24 @@ body {
 /* dit target alleen de vertrek en eindbestemming a'tjes */
 
 #pijltjes_vertrek_eind {
-    height: 20vh;
+    height: 15vh;
+}
+
+.tijd_sectie {
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.tijd_sectie label {
+    font-weight: bold;
+    font-size: 2rem;
+    border: black solid;
+    padding: 1vh 30vw;
+}
+
+.tijd_sectie input {
+    margin-top: 3vh;
+    width: 20vw;
+    height: 5vh;
 }
