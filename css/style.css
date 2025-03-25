@@ -1,0 +1,33 @@
+/*VERANDER DE CONTRASTEN LATER */
+
+
+* {
+    margin: auto;
+}
+
+/* verwijdert random witruimte overal */
+
+body {
+    padding: 4vh 0;
+}
+
+
+.center_container {
+    display: flex;
+    justify-content: center;
+}
+
+.vertrek_eind a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    width: 85vw;
+    border-style: solid;
+}
+
+/* dit target alleen de vertrek en eindbestemming a'tjes */
+
+#pijltjes_vertrek_eind {
+    height: 20vh;
+}
