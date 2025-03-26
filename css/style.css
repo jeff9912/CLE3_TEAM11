@@ -58,6 +58,11 @@ body {
     height: 5vh;
 }
 
+.zoeken {
+    padding-top: 4vh;
+    font-size: 2rem;
+}
+
 @media (prefers-color-scheme: dark) {
     * {
         background-color: #444444;
