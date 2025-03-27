@@ -7,38 +7,45 @@
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="scripts/main.js" defer></script>
 </head>
+<body>
+<main>
     <form action="routePagina.html" method="post" target="_blank">
-        <section> <!-- sectie over vertrek/eindpunt -->
-            <section class="center_container vertrek_eind">
+
+        <section>
+            <section class="center_container vertrek_eind"> <!-- sectie over vertrek/eindpunt -->
                 <select name="vertrek" id="vertrek">
                     <option value="" disabled selected>Vertrekpunt</option>
+                    <!-- alle andere opties worden ingeladen door main.js -->
                 </select>
-
-
             </section>
+
             <div class="center_container">
                 <picture>
                     <source srcset="img/arrows1_transparant_black.png" media="(prefers-color-scheme: light)">
                     <img id="pijltjes_vertrek_eind" src="img/arrows1_transparant_white.png"
                          alt="Afbeelding van vertrek naar eindbestemming">
                 </picture>
+                <!-- <picture> in plaats van <img> voor light/dark mode pijlen moeten wisselen -->
             </div>
+
             <section class="center_container vertrek_eind">
                 <select name="eindbestemming" id="eindbestemming">
                     <option value="" disabled selected>Eindbestemming</option>
                 </select>
-
             </section>
+
             <section class="center_container tijd_sectie"> <!-- sectie over tijd invulveld -->
                 <label for="tijd"> Tijd: </label>
                 <input id="tijd" name="tijd" type="time"> <!-- tijd kan niet in verleden foutmelding ? -->
                 <section class="center_container zoeken">
-                    <!--            <a href="routePagina.html">Zoeken</a>  info doorgeven door GET doorsturen in de href? -->
-                    <button value="submit">Zoeken</button>
+                    <button value="submit">Zoeken</button> <!-- submit voor de post -->
                 </section>
+            </section>
+        </section>
+
     </form>
-    </main>
-    </body>
+</main>
+</body>
 </html>
 
 
