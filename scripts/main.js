@@ -17,7 +17,7 @@ let route;
  */
 function init() {
 
-    // Start the application with loading the API data
+    // Start the applicatie met AI Data inladen
     ajaxRequest(apiUrl, formSubmitHandler);
 }
 
@@ -27,12 +27,14 @@ function ajaxRequest(url, successHandler) {
         // Request headers
         headers: {
             'Cache-Control': 'no-cache',
-            'Ocp-Apim-Subscription-Key': '51db8c2ac13b4ab59e961160d585b23d',}
+            'Ocp-Apim-Subscription-Key': '51db8c2ac13b4ab59e961160d585b23d',
+        }
     })
 
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error (${response.status}): ${response.statusText}`);
+
             }
             return response.json();
         })
@@ -42,8 +44,34 @@ function ajaxRequest(url, successHandler) {
 
 
 function formSubmitHandler(data) {
-    console.log(data)
+    //console.log(data)
     // //Prevent sending to a server
     // e.preventDefault();
     // console.log(e);
+    vulAlleStationsInDatalist(data)
+}
+
+function successHandler() {
+}
+
+function ajaxErrorHandler() {
+
+}
+
+function vulAlleStationsInDatalist(data) {
+    let datalistVanStations = document.getElementById('vertrek')
+    for (station in data.payload) {
+        let stations = document.createElement('option');
+        stations.value = data.payload[station].namen.lang
+        stations.innerText = data.payload[station].namen.lang
+        datalistVanStations.appendChild(stations)
+    }
+
+    datalistVanStations = document.getElementById('eindbestemming')
+    for (station in data.payload) {
+        let stations = document.createElement('option');
+        stations.value = data.payload[station].namen.lang
+        stations.innerText = data.payload[station].namen.lang
+        datalistVanStations.appendChild(stations)
+    }
 }
