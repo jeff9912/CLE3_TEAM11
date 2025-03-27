@@ -18,7 +18,7 @@ body {
     justify-content: center;
 }
 
-.vertrek_eind a {
+.vertrek_eind select {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,11 +63,38 @@ body {
     font-size: 2rem;
 }
 
+.zoeken button {
+    padding: 3vh 20vw;
+    border-radius: 1vw;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
 @media (prefers-color-scheme: dark) {
     * {
         background-color: #444444;
         color: white;
     }
+
+    .vertrek_eind select {
+        color: black;
+        background-color: #CECECE;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .tijd_sectie label {
+        color: black;
+        background-color: #CECECE;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .zoeken button {
+        background-color: #CECECE;
+        color: black;
+    }
+
 }
 
 @media (prefers-color-scheme: light) {
