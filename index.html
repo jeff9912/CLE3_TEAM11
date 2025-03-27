@@ -5,31 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="scripts/script.js" defer></script>
+    <script type="text/javascript" src="scripts/main.js" defer></script>
 </head>
-<body>
-<header> <!-- website heeft geen header (voor nu) --> </header>
-<main>
+    <form action="routePagina.html" method="post" target="_blank">
+        <section> <!-- sectie over vertrek/eindpunt -->
+            <section class="center_container vertrek_eind">
+                <select name="vertrek" id="vertrek">
+                    <option value="" disabled selected>Vertrekpunt</option>
+                </select>
 
-    <section> <!-- sectie over vertrek/eindpunt -->
-        <section class="center_container vertrek_eind">
-            <a href="#"> Vertrekpunt </a>
-        </section>
-        <img src="./img/arrows.png" alt="">
-        </div>
-        <section class="center_container vertrek_eind">
-            <a href="#"> Eindbestemming </a>
-        </section>
-    </section>
 
-    <section class="center_container tijd_sectie"> <!-- sectie over tijd invulveld -->
-        <label for="tijd"> Tijd: </label>
-        <input id="tijd" name="tijd" type="time"> <!-- tijd kan niet in verleden foutmelding ? -->
-    </section>
+            </section>
+            <div class="center_container">
+                <picture>
+                    <source srcset="img/arrows1_transparant_black.png" media="(prefers-color-scheme: light)">
+                    <img id="pijltjes_vertrek_eind" src="img/arrows1_transparant_white.png"
+                         alt="Afbeelding van vertrek naar eindbestemming">
+                </picture>
+            </div>
+            <section class="center_container vertrek_eind">
+                <select name="eindbestemming" id="eindbestemming">
+                    <option value="" disabled selected>Eindbestemming</option>
+                </select>
 
-    <section class="center_container ">
-        <a href="routePagina.html">Zoeken</a> <!-- info doorgeven door GET doorsturen in de href? -->
-    </section>
-</main>
-</body>
+            </section>
+            <section class="center_container tijd_sectie"> <!-- sectie over tijd invulveld -->
+                <label for="tijd"> Tijd: </label>
+                <input id="tijd" name="tijd" type="time"> <!-- tijd kan niet in verleden foutmelding ? -->
+                <section class="center_container zoeken">
+                    <!--            <a href="routePagina.html">Zoeken</a>  info doorgeven door GET doorsturen in de href? -->
+                    <button value="submit">Zoeken</button>
+                </section>
+    </form>
+    </main>
+    </body>
 </html>
+
+
+<!--alternatieve manier, input in plaats van select met gebruik van datalist-->
+<!--                <input placeholder="Vertrekpunt" list="stations">-->
+<!--                <datalist id="stations">-->
+<!--                    stations hier door javascript -->
+<!--                </datalist>-->
