@@ -60,6 +60,7 @@ function ajaxErrorHandler() {
 
 function vulAlleStationsInDatalist(data) {
     let datalistVanStations = document.getElementById('vertrek')
+
     for (station in data.payload) {
         let stations = document.createElement('option');
         stations.value = data.payload[station].namen.lang
@@ -75,3 +76,4 @@ function vulAlleStationsInDatalist(data) {
         datalistVanStations.appendChild(stations)
     }
 }
+

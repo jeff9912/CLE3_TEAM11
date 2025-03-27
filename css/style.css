@@ -28,6 +28,10 @@ body {
     text-decoration: none;
 }
 
+select option {
+    height: 20px;
+}
+
 /* dit target alleen de vertrek en eindbestemming a'tjes */
 
 
