@@ -23,5 +23,12 @@ header {
     padding: 1vh 2vw;
     margin-right: 3vw;
     border: solid;
+    background-color: grey;
     font-weight: bold;
 }
+
+@media (prefers-color-scheme: dark) {
+    * {
+        background-color: #444444;
+        color: white;
+    }
