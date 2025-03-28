@@ -2,6 +2,7 @@ window.addEventListener('load', init);
 
 //Globals
 const apiUrl = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations?limit=10';
+
 let nsData = {};
 let route;
 
@@ -76,4 +77,5 @@ function vulAlleStationsInDatalist(data) {
         datalistVanStations.appendChild(stations)
     }
 }
+
 
