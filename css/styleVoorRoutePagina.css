@@ -20,15 +20,17 @@ header {
 }
 
 #laatSpoorZien {
-    padding: 1vh 2vw;
+    padding: 2vh 2vh;
     margin-right: 3vw;
     border: solid;
     background-color: grey;
     font-weight: bold;
+    color: black;
 }
 
 @media (prefers-color-scheme: dark) {
-    * {
+    body {
         background-color: #444444;
         color: white;
     }
+}

@@ -1,3 +1,6 @@
+// tijdelijke javascript voor routeOverview om merge conflicts te voorkomen
+// duplucate error komt omdat er meerdere bestanden met dezelde code zijn
+
 window.addEventListener('load', init);
 
 //Globals
@@ -44,11 +47,13 @@ function ajaxRequest(url, successHandler) {
 
 
 function formSubmitHandler(data) {
+
     //console.log(data)
     // //Prevent sending to a server
     // e.preventDefault();
     // console.log(e);
-    vulAlleStationsInDatalist(data)
+
+    console.log(data.payload)
 }
 
 function successHandler() {
@@ -57,23 +62,3 @@ function successHandler() {
 function ajaxErrorHandler() {
 
 }
-
-function vulAlleStationsInDatalist(data) {
-    let datalistVanStations = document.getElementById('vertrek')
-
-    for (station in data.payload) {
-        let stations = document.createElement('option');
-        stations.value = data.payload[station].namen.lang
-        stations.innerText = data.payload[station].namen.lang
-        datalistVanStations.appendChild(stations)
-    }
-
-    datalistVanStations = document.getElementById('eindbestemming')
-    for (station in data.payload) {
-        let stations = document.createElement('option');
-        stations.value = data.payload[station].namen.lang
-        stations.innerText = data.payload[station].namen.lang
-        datalistVanStations.appendChild(stations)
-    }
-}
-
