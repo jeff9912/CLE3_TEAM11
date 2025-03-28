@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>OV bij visueel verperkt</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="scripts/main.js" defer></script>
+    <script type="text/javascript" src="scripts/main2.js" defer></script>
 </head>
 <body>
 <main>
 
-    <form action="routePagina.php" method="post" target="_blank">
+    <form action="routeOverview.php" method="post" target="_blank">
 
         <section>
             <section class="center_container vertrek_eind"> <!-- sectie over vertrek/eindpunt -->
@@ -39,8 +39,12 @@
                 <label for="tijd"> Tijd: </label>
                 <input id="tijd" name="tijd" type="time"> <!-- tijd kan niet in verleden foutmelding ? -->
                 <section class="center_container zoeken">
-                    <button value="submit">Zoeken</button> <!-- submit voor de post -->
+                    <button type="submit" name="submit" value="submit">Zoeken</button> <!-- submit voor de post -->
                 </section>
+            </section>
+
+            <section>
+                <input type="hidden" id="hiddenFieldOmApiLinkDoorTeSturen">
             </section>
         </section>
 
