@@ -1,25 +1,24 @@
 window.addEventListener('load', init);
 
-//Globals
-const apiUrl = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations?limit=10';
+// Globals
 let nsData = {};
-let route;
-
-// // Store data for later use
-// monsterData[getMonsters.id] = {
-//     id: getMonsters.id,
-//     name: getMonsters.name,
-//     description: getMonsters.description
-// };
+let form;
 
 /**
  * Initialize after the DOM is ready
  */
 function init() {
+    const apiUrl = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations?limit=10';
 
-    // Start the applicatie met AI Data inladen
-    ajaxRequest(apiUrl, formSubmitHandler);
+    form = document.querySelector('form');
+    form.addEventListener('submit', formSubmitHandler);
+
+    ajaxRequest(apiUrl, handleStationData);
 }
+
+/**
+ * Fetch data from NS API
+ */
 
 function ajaxRequest(url, successHandler) {
     fetch(url, {
@@ -27,14 +26,12 @@ function ajaxRequest(url, successHandler) {
         // Request headers
         headers: {
             'Cache-Control': 'no-cache',
-            'Ocp-Apim-Subscription-Key': '51db8c2ac13b4ab59e961160d585b23d',
-        }
+            'Ocp-Apim-Subscription-Key': '51db8c2ac13b4ab59e961160d585b23d',}
     })
 
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error (${response.status}): ${response.statusText}`);
-
             }
             return response.json();
         })
@@ -43,37 +40,72 @@ function ajaxRequest(url, successHandler) {
 }
 
 
-function formSubmitHandler(data) {
-    //console.log(data)
-    // //Prevent sending to a server
-    // e.preventDefault();
-    // console.log(e);
-    vulAlleStationsInDatalist(data)
+/**
+ * Handler for retrieved station data
+ */
+function handleStationData(data) {
+    nsData = data.payload; // Payload containing stations
+    console.log('Stations geladen:', nsData);
+
+    // starts autocomplete function
+    setupAutocomplete();
 }
 
-function successHandler() {
+/**
+ * Setup for autocomplete
+ */
+function setupAutocomplete() {
+    const stationNames = nsData.map(station => station.namen.lang);
+
+    const inputs = [document.getElementById('startpoint'), document.getElementById('endpoint')];
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            const value = input.value.toLowerCase();
+            const suggestions = stationNames.filter(name =>
+                name.toLowerCase().startsWith(value)
+            );
+
+            // Show suggestion in a dropdown
+            console.log(`Suggesties voor "${value}":`, suggestions.slice(0, 5));
+        });
+    });
 }
 
-function ajaxErrorHandler() {
+/**
+ * Handler for form
+ */
+function formSubmitHandler(e) {
+    //Prevent sending to a server
+    e.preventDefault();
 
+    const from = document.getElementById('startpoint').value;
+    const to = document.getElementById('endpoint').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    console.log('Reis zoeken van:', from, 'naar:', to, 'op:', date, time);
+
+    loadTrip(from, to, date, time); // Later implementeren
 }
 
-function vulAlleStationsInDatalist(data) {
-    let datalistVanStations = document.getElementById('vertrek')
+/**
+ * Load trips
+ */
+function loadTrip(from, to, date, time) {
+    // Bouw je NS reisadvies request hier
+    // Bijvoorbeeld: `https://api.ns.nl/reisinformatie-api/api/v2/trips?fromStation=${from}&toStation=${to}&dateTime=${date}T${time}`
+    console.log(`Reis ophalen van ${from} naar ${to} op ${date} om ${time}`);
+}
 
-    for (station in data.payload) {
-        let stations = document.createElement('option');
-        stations.value = data.payload[station].namen.lang
-        stations.innerText = data.payload[station].namen.lang
-        datalistVanStations.appendChild(stations)
-    }
+/**
+ * error handler
+ */
+function ajaxErrorHandler(error) {
+    console.error(error);
 
-    datalistVanStations = document.getElementById('eindbestemming')
-    for (station in data.payload) {
-        let stations = document.createElement('option');
-        stations.value = data.payload[station].namen.lang
-        stations.innerText = data.payload[station].namen.lang
-        datalistVanStations.appendChild(stations)
-    }
+    const message = document.createElement('div');
+    message.classList.add('error');
+    message.innerHTML = 'Er is iets fout gegaan bij het ophalen van gegevens.';
+    form.before(message);
 }
 
