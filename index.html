@@ -14,7 +14,8 @@
 
         <section>
             <section class="center_container vertrek_eind"> <!-- sectie over vertrek/eindpunt -->
-                <select name="vertrek" id="vertrek">
+                <label for="startpoint">Beginpunt</label>
+                <select name="startpoint" id="startpoint">
                     <option value="" disabled selected>Vertrekpunt</option>
                     <!-- alle andere opties worden ingeladen door main.js -->
                 </select>
@@ -30,16 +31,20 @@
             </div>
 
             <section class="center_container vertrek_eind">
-                <select name="eindbestemming" id="eindbestemming">
+                <label for="endpoint">Eindpunt</label>
+                <select name="endpoint" id="endpoint">
                     <option value="" disabled selected>Eindbestemming</option>
                 </select>
             </section>
 
             <section class="center_container tijd_sectie"> <!-- sectie over tijd invulveld -->
-                <label for="tijd"> Tijd: </label>
-                <input id="tijd" name="tijd" type="time"> <!-- tijd kan niet in verleden foutmelding ? -->
+                <label for="time"> Tijd: </label>
+                <input id="time" name="time" type="time"> <!-- tijd kan niet in verleden foutmelding ? -->
+                <label for="date">Datum</label>
+                <input type="date" name="date" id="date">
                 <section class="center_container zoeken">
                     <button type="submit" name="submit" value="submit">Zoeken</button> <!-- submit voor de post -->
+
                 </section>
             </section>
 
