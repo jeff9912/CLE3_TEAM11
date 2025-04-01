@@ -84,27 +84,25 @@ function dateTimeHandler() {
 /**
  * Handler for form
  */
-function formSubmitHandler(e) {
-    //Prevent sending to a server
-    e.preventDefault();
-
-    const from = document.getElementById('startpunt').value;
-    const to = document.getElementById('eindpunt').value;
-    const date = document.getElementById('datum').value;
-    const time = document.getElementById('tijd').value;
-
-    console.log('Reis zoeken van:', from, 'naar:', to, 'op:', date, time);
-
-    loadTrip(from, to, date, time); // Add later
-}
-
 /**
- * Load trips
+ * Handler for form
  */
-function loadTrip(from, to, date, time) {
-    // NS Trip request
-    // `https://api.ns.nl/reisinformatie-api/api/v2/trips?fromStation=${from}&toStation=${to}&dateTime=${date}T${time}`
-    console.log(`Reis ophalen van ${from} naar ${to} op ${date} om ${time}`);
+function formSubmitHandler(e) {
+    // //Prevent sending to a server
+    // e.preventDefault();
+    const departure = document.getElementById("startpoint").value;
+    const arrival = document.getElementById("endpoint").value;
+    const date = document.getElementById("dateInput").value;
+    const time = document.getElementById("timeInput").value;
+
+    const dateTimeString = `${date}T${time}:00`;
+    const dateTime = new Date(dateTimeString);
+
+    localStorage.setItem("departure", departure);
+    localStorage.setItem("arrival", arrival);
+    localStorage.setItem("datetime", dateTime.toISOString());
+
+    console.log('Reis zoeken van:', departure, 'naar:', arrival, 'op:', date, time)
 }
 
 /**
