@@ -9,11 +9,12 @@ let form;
  */
 function init() {
     const apiUrl = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations?limit=10';
+    ajaxRequest(apiUrl, handleStationData);
 
     form = document.querySelector('form');
     form.addEventListener('submit', formSubmitHandler);
 
-    ajaxRequest(apiUrl, handleStationData);
+    dateTimeHandler();
 }
 
 /**
@@ -63,6 +64,21 @@ function setupTrainAutocompleteDatalist() {
     });
 
     console.log('Datalist gevuld met stations:', stationNames.length);
+}
+
+function dateTimeHandler() {
+    const dateFormInput = document.getElementById('dateInput');
+    const timeFormInput = document.getElementById('timeInput');
+
+    const now = new Date();
+    const today = now.toISOString().split('T')[0]; //Today in Year - month - day format
+    const currentTime = now.toTimeString().split(':').slice(0, 2).join(':'); //Current time in Hours:Minutes format
+
+    dateFormInput.value = today;
+    timeFormInput.value = currentTime;
+
+    console.log(today);
+    console.log(currentTime);
 }
 
 /**
