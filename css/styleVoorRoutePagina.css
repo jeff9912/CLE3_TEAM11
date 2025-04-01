@@ -32,7 +32,7 @@ header {
 
 .volgendeStation {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin-top: 2vh;
     background-color: #3E445B;
     border: solid 2px black;
@@ -51,11 +51,15 @@ header {
 .tijd_sectie {
     font-size: 3rem;
     font-weight: bold;
-
+    padding-top: 10vh;
 }
 
 .tijd_sectie img {
     height: 20vh;
+}
+
+.haltes {
+    padding-top: 20vh;
 }
 
 /*  als device op dark mode:    */
