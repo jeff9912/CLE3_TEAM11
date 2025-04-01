@@ -18,26 +18,17 @@ body {
     justify-content: center;
 }
 
-.vertrek_eind select {
+
+.vertrek_eind input {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
-    width: 85vw;
+    width: 80vw;
     border-style: solid;
     text-decoration: none;
 }
 
-select option {
-    height: 20px;
-}
-
-/* dit target alleen de vertrek en eindbestemming a'tjes */
-
-
-.vertrek_eind a:hover {
-    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)
-}
 
 #pijltjes_vertrek_eind {
     height: 15vh;

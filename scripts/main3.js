@@ -22,6 +22,12 @@ function init() {
 
     // Start the applicatie met AI Data inladen
     ajaxRequest(apiUrl, formSubmitHandler);
+
+
+    fetch("data.php")
+        .then(response => {
+            console.log()
+        })
 }
 
 function ajaxRequest(url, successHandler) {
@@ -43,6 +49,21 @@ function ajaxRequest(url, successHandler) {
         })
         .then(successHandler)
         .catch(ajaxErrorHandler);
+
+
+    fetch('https://gateway.apiportal.ns.nl/reisinformatie-api/api/v3/trips?originName=aaaa&destinationName=bbbbbbb&originWalk=false&originBike=false&originCar=false&destinationWalk=false&destinationBike=false&destinationCar=false&shorterChange=false&travelAssistance=false&searchForAccessibleTrip=false&localTrainsOnly=false&excludeHighSpeedTrains=false&excludeTrainsWithReservationRequired=false&discount=NO_DISCOUNT&travelClass=2&passing=false&travelRequestType=DEFAULT', {
+        method: 'GET',
+        // Request headers
+        headers: {
+            'Cache-Control': 'no-cache',
+            'Ocp-Apim-Subscription-Key': 'f7a4cfc82a4f436f9e325370015e0890',
+        }
+    })
+        .then(response => {
+            console.log(response.status);
+            console.log(response.text());
+        })
+        .catch(err => console.error(err));
 }
 
 

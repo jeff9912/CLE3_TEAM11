@@ -1,15 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script type="text/javascript" src="scripts/routeOverview.js" defer></script>
-  <title>Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Route</title>
+    <link rel="stylesheet" href="css/styleVoorRoutePagina.css">
+    <script type="text/javascript" src="scripts/main3.js" defer></script> <!--  script veranderen hier?-->
+
+
 </head>
 <body>
+<header>
 
+    <section> <!-- sectie van de banners -->
+        <div class="richting">
+            <h1> Richting: <br> test test test <?= $eindbestemming ?> <!-- <inladen met php mogelijk --> </h1>
+            <h1 id="laatSpoorZienVertrek">6</h1>
+        </div>
+
+        <div class="volgendeStation">
+            <h1> Volgende: <br> test test test <?= $tijd ?> <!-- <inladen met php mogelijk --> </h1>
+        </div>
+    </section>
+
+    <section class="tijd_sectie"> <!-- sectie dat gaat over tijd -->
+        <div class="center_container">
+            <p> tijd hier </p>
+        </div>
+        <div class="center_container">
+            <picture>
+                <source srcset="img/arrows1_transparant_black.png" media="(prefers-color-scheme: light)">
+                <img id="pijltjes_vertrek_eind" src="img/arrows1_transparant_white.png"
+                     alt="Afbeelding van vertrek naar eindbestemming">
+                <!-- andere foto hier -->
+            </picture>
+        </div>
+        <div class="center_container">
+            <p> ook tijd hier </p>
+        </div>
+    </section>
+</header>
+<main>
+
+</main>
+<footer>
+
+</footer>
 </body>
 </html>

@@ -72,10 +72,10 @@ function formSubmitHandler(e) {
     //Prevent sending to a server
     e.preventDefault();
 
-    const from = document.getElementById('startpoint').value;
-    const to = document.getElementById('endpoint').value;
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
+    const from = document.getElementById('startpunt').value;
+    const to = document.getElementById('eindpunt').value;
+    const date = document.getElementById('datum').value;
+    const time = document.getElementById('tijd').value;
 
     console.log('Reis zoeken van:', from, 'naar:', to, 'op:', date, time);
 

@@ -10,15 +10,13 @@
 <body>
 <main>
 
-    <form action="routeOverview.php" method="post" target="_blank">
+    <form action="routeOverview.html" method="post" target="_blank">
 
         <section>
             <section class="center_container vertrek_eind"> <!-- sectie over vertrek/eindpunt -->
-                <label for="startpoint">Beginpunt</label>
-                <select name="startpoint" id="startpoint">
-                    <option value="" disabled selected>Vertrekpunt</option>
-                    <!-- alle andere opties worden ingeladen door main.js -->
-                </select>
+                <label for="startpunt">Beginpunt</label>
+                <!--                label weghalen later-->
+                <input list="stations" id="startpunt" name="startpunt" placeholder="Vertrekpunt">
             </section>
 
             <div class="center_container">
@@ -31,17 +29,15 @@
             </div>
 
             <section class="center_container vertrek_eind">
-                <label for="endpoint">Eindpunt</label>
-                <select name="endpoint" id="endpoint">
-                    <option value="" disabled selected>Eindbestemming</option>
-                </select>
+                <label for="eindpunt">Eindpunt</label>
+                <input list="stations" id="eindpunt" name="eindpunt" placeholder="Eindbestemming">
             </section>
 
             <section class="center_container tijd_sectie"> <!-- sectie over tijd invulveld -->
-                <label for="time"> Tijd: </label>
-                <input id="time" name="time" type="time"> <!-- tijd kan niet in verleden foutmelding ? -->
-                <label for="date">Datum</label>
-                <input type="date" name="date" id="date">
+                <label for="tijd"> Tijd: </label>
+                <input id="tijd" name="tijd" type="time"> <!-- tijd kan niet in verleden foutmelding ? -->
+                <label for="datum">Datum</label>
+                <input type="date" name="datum" id="datum">
                 <section class="center_container zoeken">
                     <button type="submit" name="submit" value="submit">Zoeken</button> <!-- submit voor de post -->
 
@@ -55,12 +51,8 @@
 
     </form>
 </main>
+<datalist id="stations"></datalist>
 </body>
 </html>
 
 
-<!--alternatieve manier, input in plaats van select met gebruik van datalist-->
-<!--                <input placeholder="Vertrekpunt" list="stations">-->
-<!--                <datalist id="stations">-->
-<!--                    stations hier door javascript -->
-<!--                </datalist>-->

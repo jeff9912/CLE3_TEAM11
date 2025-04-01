@@ -8,18 +8,19 @@ h1 {
 }
 
 header {
-    background-color: #3E445B;
-    padding: 2vh 0;
 }
 
 .richting {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10vw;
+    gap: 20vw;
+    padding: 1vh 1vw;
+    border: solid 2px black;
+    background-color: #3E445B;
 }
 
-#laatSpoorZien {
+#laatSpoorZienVertrek {
     padding: 2vh 2vh;
     margin-right: 3vw;
     border: solid;
@@ -28,9 +29,45 @@ header {
     color: black;
 }
 
+
+.volgendeStation {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2vh;
+    background-color: #3E445B;
+    border: solid 2px black;
+    padding: 1vh 1vw;
+}
+
+.volgendeStation h1 {
+    padding-left: 5vw;
+}
+
+.center_container {
+    display: flex;
+    justify-content: center;
+}
+
+.tijd_sectie {
+    font-size: 3rem;
+    font-weight: bold;
+
+}
+
+.tijd_sectie img {
+    height: 20vh;
+}
+
+/*  als device op dark mode:    */
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #444444;
         color: white;
     }
+}
+
+
+/*  als device op light mode:   */
+@media (prefers-color-scheme: light) {
+
 }
