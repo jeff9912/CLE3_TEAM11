@@ -10,8 +10,8 @@ let form;
 function init() {
     const apiUrl = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations?limit=10';
 
-    // form = document.querySelector('form');
-    // form.addEventListener('submit', formSubmitHandler);
+    form = document.querySelector('form');
+    form.addEventListener('submit', formSubmitHandler);
 
     ajaxRequest(apiUrl, handleStationData);
 }
