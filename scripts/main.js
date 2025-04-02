@@ -67,8 +67,8 @@ function setupTrainAutocompleteDatalist() {
 }
 
 function dateTimeHandler() {
-    const dateFormInput = document.getElementById('dateInput');
-    const timeFormInput = document.getElementById('timeInput');
+    const dateFormInput = document.getElementById('datum');
+    const timeFormInput = document.getElementById('tijd');
 
     const now = new Date();
     const today = now.toISOString().split('T')[0]; //Today in Year - month - day format
@@ -90,10 +90,10 @@ function dateTimeHandler() {
 function formSubmitHandler(e) {
     // //Prevent sending to a server
     // e.preventDefault();
-    const departure = document.getElementById("startpoint").value;
-    const arrival = document.getElementById("endpoint").value;
-    const date = document.getElementById("dateInput").value;
-    const time = document.getElementById("timeInput").value;
+    const departure = document.getElementById("startpunt").value;
+    const arrival = document.getElementById("eindpunt").value;
+    const date = document.getElementById("tijd").value;
+    const time = document.getElementById("datum").value;
 
     const dateTimeString = `${date}T${time}:00`;
     const dateTime = new Date(dateTimeString);
