@@ -58,8 +58,22 @@ header {
     height: 20vh;
 }
 
-.haltes {
-    padding-top: 20vh;
+.halte_en_route {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 15vh;
+}
+
+.route_button {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    padding-top: 1vh;
+}
+
+.route_button button {
+    padding: 2vh 4vw;
 }
 
 /*  als device op dark mode:    */
