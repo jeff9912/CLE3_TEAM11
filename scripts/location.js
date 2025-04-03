@@ -71,7 +71,8 @@ function haversine(lat1, lon1, lat2, lon2) {
 }
 
 function distanceCheck(distance) {
-    if (distance > 50) {
-        //audio miles
+    if (distance < 50) {
+        console.log('binnen 50 meter')
+        //miles audio komt hier
     }
 }
