@@ -80,6 +80,17 @@ p {
     font-size: 2rem;
 }
 
+#naar_detail {
+    display: flex;
+    justify-content: center;
+    padding: 1vh 0;
+}
+
+#naar_detail button {
+    padding: 1vh 25vw;
+}
+
+
 /*  als device op dark mode:    */
 @media (prefers-color-scheme: dark) {
     body {
