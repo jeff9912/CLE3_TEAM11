@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OV bij visueel verperkt</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="scripts/main.js" defer></script>
+    <link rel="stylesheet" href="css/settings.css">
+    <script type="text/javascript" src="scripts/main2.js" defer></script>
+    <script type="text/javascript" src="scripts/settings.js" defer></script>
 </head>
 <body>
 <main>
 
-    <form action="routeOverview.html" method="post" target="_self">
+    <form action="routeOverview.html" method="post" target="_blank">
 
         <section>
             <section class="center_container vertrek_eind"> <!-- sectie over vertrek/eindpunt -->
-                <!-- label weggehaald hier en voor eindpunt -->
+                <label for="startpunt">Beginpunt</label>
+                <!--                label weghalen later-->
                 <input list="stations" id="startpunt" name="startpunt" placeholder="Vertrekpunt">
             </section>
 
@@ -28,6 +31,7 @@
             </div>
 
             <section class="center_container vertrek_eind">
+                <label for="eindpunt">Eindpunt</label>
                 <input list="stations" id="eindpunt" name="eindpunt" placeholder="Eindbestemming">
             </section>
 
