@@ -1,5 +1,6 @@
 window.addEventListener("load", init)
 
+
 let url;
 let infoUrl;
 let optionsContainer;
@@ -14,6 +15,8 @@ function init() {
     //om de stations op te halen uit de NS API
     url = "https://gateway.apiportal.ns.nl/nsapp-stations/v2"
     ajaxRequest(url, stationCheck)
+    
+    window.lastStationCoords = "Hello from file1.js!";
 }
 
 function ajaxRequest(url, successHandler) {

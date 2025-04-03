@@ -18,6 +18,7 @@ function init() {
 
     // dit zorgt ervoor dat de pijlen werken van de station switch
     form.addEventListener('click', switchStations)
+
 }
 
 /**
