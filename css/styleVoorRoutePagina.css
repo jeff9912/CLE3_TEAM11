@@ -76,6 +76,10 @@ header {
     padding: 2vh 4vw;
 }
 
+p {
+    font-size: 2rem;
+}
+
 /*  als device op dark mode:    */
 @media (prefers-color-scheme: dark) {
     body {

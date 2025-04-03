@@ -15,6 +15,9 @@ function init() {
     form.addEventListener('submit', formSubmitHandler);
 
     dateTimeHandler();
+
+    // dit zorgt ervoor dat de pijlen werken van de station switch
+    form.addEventListener('click', switchStations)
 }
 
 /**
@@ -77,8 +80,8 @@ function dateTimeHandler() {
     dateFormInput.value = today;
     timeFormInput.value = currentTime;
 
-    console.log(today);
-    console.log(currentTime);
+    // console.log(today);
+    // console.log(currentTime);
 }
 
 /**
@@ -115,4 +118,15 @@ function ajaxErrorHandler(error) {
     message.classList.add('error');
     message.innerHTML = 'Er is iets fout gegaan bij het ophalen van gegevens.';
     form.before(message);
+}
+
+function switchStations(event) {
+    let departure = document.getElementById("startpunt");
+    let arrival = document.getElementById("eindpunt");
+
+    if (event.target.id === 'pijltjes_vertrek_eind') {
+        let temp = departure.value;
+        departure.value = arrival.value;
+        arrival.value = temp;
+    }
 }
