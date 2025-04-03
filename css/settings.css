@@ -36,7 +36,7 @@
 
 /* Base styles */
 body {
-    /*  background-color: var(--bg-color);      weggehaald */
+    background-color: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-family);
     font-size: var(--font-size);
@@ -46,7 +46,8 @@ body {
 }
 
 /* Form elements */
-.route, .time, select, button, textarea, .test-class {
+.route, .time, select, button, textarea, .test-class, .center_container, .vertrek_eind,
+#startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, button  {
     font-family: var(--font-family);
     font-size: calc(var(--font-size) * 0.9);
     padding: calc(var(--input-padding) * 0.8);
@@ -59,5 +60,6 @@ body {
     max-width: 300px;
     box-sizing: border-box;
 }
+
 
 /*///////////////////////////////////////////////////////  style  ///////////////////////////*/

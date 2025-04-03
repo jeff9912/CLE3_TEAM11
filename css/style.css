@@ -12,6 +12,10 @@ body {
     padding: 2vh 0;
 }
 
+form{
+    display: flex;
+    padding: 0;
+}
 
 .center_container {
     display: flex;
@@ -36,6 +40,8 @@ body {
     height: 15vh;
 }
 
+
+
 .tijd_sectie {
     padding-top: 8vh;
     display: flex;
@@ -55,48 +61,17 @@ body {
     height: 5vh;
 }
 
+
+
 .zoeken {
     padding-top: 4vh;
     font-size: 2rem;
 }
 
 .zoeken button {
-    padding: 3vh 20vw;
+    padding: 3vh 10vw;
     border-radius: 1vw;
     font-weight: bold;
     font-size: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-    * {
-        background-color: #444444;
-        color: white;
-    }
-
-    .vertrek_eind select {
-        color: black;
-        background-color: #CECECE;
-        text-align: center;
-        font-size: 2rem;
-    }
-
-    .tijd_sectie label {
-        color: black;
-        background-color: #CECECE;
-        text-align: center;
-        font-size: 2rem;
-    }
-
-    .zoeken button {
-        background-color: #CECECE;
-        color: black;
-    }
-
-}
-
-@media (prefers-color-scheme: light) {
-    * {
-        background-color: #EAEAEA;
-        color: black;
-    }
-}
