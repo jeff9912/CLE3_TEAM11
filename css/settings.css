@@ -1,16 +1,20 @@
 /* Consolidated :root variables */
 :root {
     /* Color variables */
-    --bg-color: #ffffff;
-    --text-color: #333333;
+    --bg-color: #f3f3f3;
+    --text-color: #020202;
     --primary-color: #4285f4;
-    --border-color: #dddddd;
+    --border-color: #676767;
+    --input-bg-color: #676767;
+
 
     /* Font variables */
     --font-size: 16px;
     --input-padding: 8px;
     --font-family: Arial, sans-serif;
 }
+
+
 /* Theme overrides */
 
 
@@ -18,12 +22,12 @@
 
 
 [data-theme="dark"] {
-    --bg-color: #222222;
-    --text-color: #f0f0f0;
+    --bg-color: #232323;
+    --text-color: #f1ecec;
     --primary-color: #8ab4f8;
-    --border-color: #444444;
+    --border-color: #c1baba;
 }
-/*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
+/*/////////////////////////////////         BLUE                   ///////////////////////////////////////////////////////*/
 
 [data-theme="blue"] {
     --bg-color: #e6f0ff;
@@ -31,6 +35,19 @@
     --primary-color: #0066cc;
     --border-color: #99c2ff;
 }
+
+[data-theme="blue"] input, center_container zoeken{
+    --bg-color: #58a0e1;
+    --text-color: #0066cc;
+}
+
+
+
+[data-theme="blue"] #zoeken {
+    --bg-color: #5aa7d1;
+    --text-color: #003366;
+}
+
 /*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
 
 
@@ -41,11 +58,29 @@
     --border-color: #fff2a0;
 
 }
+
 [data-theme="lilac"] input{
     --bg-color: #fff2a0;
     --text-color: #1c1601;
 
+
 }
+
+[data-theme="lilac"] #zoeken {
+    --bg-color: #fff2a0;
+    --text-color: #1c1601;
+    --border-color: #fff2a0;;
+
+}
+
+[data-theme="lilac"] #settings-button-id {
+    --bg-color: #fff2a0;
+    --text-color: #1c1601;
+    --border-color: #fff2a0;;
+
+}
+
+
 /*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
 /* Base styles */
 body {
@@ -60,7 +95,7 @@ body {
 
 /* Form elements */
 .route, .time, select, button, textarea, .test-class,
-#startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, .zoeken button  {
+#startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, .zoeken button, settings-button, a {
 
     font-family: var(--font-family);
     font-size: calc(var(--font-size) * 0.9);

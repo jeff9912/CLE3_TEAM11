@@ -14,15 +14,17 @@ body {
 
 form{
     display: flex;
+    justify-content: center;
     padding: 10vh 0 10vh 0;
-    border: solid;
+
+
 
 }
 
 .center_container {
     display: flex;
     justify-content: center;
-    min-width: 75vw;
+    text-align: center;
 
 }
 
@@ -37,6 +39,9 @@ form{
     text-decoration: none;
     text-align: center;
     font-size: 1.5rem;
+
+    text-align: center;
+
 }
 
 
@@ -48,13 +53,20 @@ form{
 
 
 .tijd_sectie {
-    margin-top: 7vh;
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#label-time, #label-datum, #tijd, #datum{
+#label-time, #label-datum{
+    min-width: 70vw;
+    min-height: 5vh;
+}
+
+
+
+#tijd, #datum{
     min-width: 70vw;
     min-height: 7vh;
 }
@@ -79,9 +91,18 @@ form{
     font-size: 2rem;
 }
 
-.zoeken button {
+.zoeken button{
     padding: 3vh 10vw;
     border-radius: 1vw;
+
+
+}
+
+.settings-button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 
 
 }
