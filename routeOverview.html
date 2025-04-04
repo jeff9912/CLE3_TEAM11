@@ -11,8 +11,9 @@
 
 </head>
 <body>
-<!-- Header waarin vertrek- en aankomststation worden getoond -->
+<!-- Header met richting en treininfo -->
 <header>
+    <!-- Header waarin vertrek- en aankomststation worden getoond -->
     <div class="route-header">
         <div class="richting">
             <p><strong>Richting:</strong> <span id="richting-text">test test test</span></p>
@@ -31,12 +32,12 @@
     <section id="travelOptions">
         <!-- Wordt gevuld met tripkaarten door JavaScript -->
     </section>
+    <div id="navigationButtons" style="display: none;">
+        <button id="prevButton">Vorige route</button>
+        <button id="nextButton">Volgende route</button>
+    </div>
     <!-- Eventuele foutmeldingen komen hier terecht -->
     <div id="errorContainer"></div>
-    <div class="buttons">
-        <button onclick="window.history.back()">Vorige Route</button>
-        <button onclick="window.location.reload()">Volgende Route</button>
-    </div>
 </main>
 </body>
 </html>

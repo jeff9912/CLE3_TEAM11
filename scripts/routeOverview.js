@@ -2,6 +2,8 @@ window.addEventListener("load", init);
 
 let url;
 let infoUrl;
+let allTrips = [];
+let currentTripIndex = 0;
 
 /**
  * Initialize after the DOM is ready
@@ -9,7 +11,30 @@ let infoUrl;
 function init() {
     url = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations?limit=10';
     ajaxRequest(url, stationCheck);
+
+    // EventListeners voor knoppen
+    let nextButton = document.getElementById("nextButton");
+    let prevButton = document.getElementById("prevButton");
+
+    nextButton.addEventListener("click", function () {
+        if (currentTripIndex < allTrips.length - 1) {
+            currentTripIndex++;
+        } else {
+            currentTripIndex = 0;
+        }
+        showCurrentTrip();
+    });
+
+    prevButton.addEventListener("click", function () {
+        if (currentTripIndex > 0) {
+            currentTripIndex--;
+        } else {
+            currentTripIndex = allTrips.length - 1;
+        }
+        showCurrentTrip();
+    });
 }
+
 
 /**
  * Fetch data from NS API
@@ -31,7 +56,6 @@ function ajaxRequest(url, successHandler) {
         .then(successHandler)
         .catch(ajaxErrorHandler);
 }
-
 
 /**
  * Controleert de stations en haalt relevante reisinformatie op.
@@ -70,10 +94,14 @@ function tripsLoading(departure, arrival, datetime) {
     ajaxRequest(infoUrl, displayTrips);
 }
 
+/**
+ * Laat alle reisinformatie zien (één tegelijk).
+ */
 function displayTrips(data) {
     console.log(data);
     const header = document.querySelector("header");
     const optionsContainer = document.querySelector("#travelOptions");
+    const navButtons = document.getElementById("navigationButtons");
 
     header.innerHTML = "";
     optionsContainer.innerHTML = "";
@@ -85,18 +113,44 @@ function displayTrips(data) {
     tripHeader.innerText = `${departure} ➞ ${arrival}`;
     header.appendChild(tripHeader);
 
-    // Reizen weergeven
-    data.trips.forEach(trip => {
-        const card = createTripCard(trip);
-        optionsContainer.appendChild(card);
-        card.addEventListener("click", redirect);
-    });
+    // // Reizen weergeven
+    // data.trips.forEach(trip => {
+    //     const card = createTripCard(trip);
+    //     optionsContainer.appendChild(card);
+    //     card.addEventListener("click", redirect);
+    // });
+
+    allTrips = data.trips;
+    currentTripIndex = 0;
+
+    showCurrentTrip();
+
+    if (allTrips.length > 1) {
+        navButtons.style.display = "flex";
+    } else {
+        navButtons.style.display = "none";
+    }
 }
+
+/**
+ * Toont de huidige route.
+ */
+function showCurrentTrip() {
+    let optionsContainer = document.querySelector("#travelOptions");
+    optionsContainer.innerHTML = "";
+
+    let trip = allTrips[currentTripIndex];
+    let card = createTripCard(trip);
+    optionsContainer.appendChild(card);
+
+    updateTripCounter();
+}
+
 
 function createTripCard(trip) {
     const card = document.createElement("div");
     card.classList.add("optie");
-    card.addEventListener("click", () => window.location.href = "route.html");
+    card.addEventListener("click", redirect);
 
     // Tijden ophalen
     const departureTime = formatTime(trip.legs[0].origin.plannedDateTime);
@@ -134,6 +188,19 @@ function createTripCard(trip) {
     return card;
 }
 
+/**
+ * Update de teller onder de reis (bijvoorbeeld: Route 2 van 4)
+ */
+function updateTripCounter() {
+    let counter = document.getElementById("tripCounter");
+    if (!counter) {
+        counter = document.createElement("p");
+        counter.id = "tripCounter";
+        document.getElementById("navigationButtons").appendChild(counter);
+    }
+    counter.innerText = "Route " + (currentTripIndex + 1) + " van " + allTrips.length;
+}
+
 function formatTime(dateTimeString) {
     const date = new Date(dateTimeString);
     return date.toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" });
@@ -154,3 +221,6 @@ function ajaxErrorHandler(error) {
     message.classList.add('error');
     message.innerHTML = 'Er is iets fout gegaan bij het ophalen van gegevens.';
 }
+
+
+
