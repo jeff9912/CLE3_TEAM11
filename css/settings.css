@@ -11,14 +11,19 @@
     --input-padding: 8px;
     --font-family: Arial, sans-serif;
 }
-
 /* Theme overrides */
+
+
+/*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
+
+
 [data-theme="dark"] {
     --bg-color: #222222;
     --text-color: #f0f0f0;
     --primary-color: #8ab4f8;
     --border-color: #444444;
 }
+/*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
 
 [data-theme="blue"] {
     --bg-color: #e6f0ff;
@@ -26,14 +31,22 @@
     --primary-color: #0066cc;
     --border-color: #99c2ff;
 }
+/*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
 
-[data-theme="lilac"] {
+
+[data-theme="lilac"]  {
     --bg-color: #291b39;
     --text-color: #dccfa3;
     --primary-color: #504f2b;
     --border-color: #fff2a0;
-}
 
+}
+[data-theme="lilac"] input{
+    --bg-color: #fff2a0;
+    --text-color: #1c1601:
+
+}
+/*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
 /* Base styles */
 body {
     background-color: var(--bg-color);
@@ -46,7 +59,7 @@ body {
 }
 
 /* Form elements */
-.route, .time, select, button, textarea, .test-class, .center_container, .vertrek_eind,
+.route, .time, select, button, textarea, .test-class,
 #startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, .zoeken button  {
 
     font-family: var(--font-family);
