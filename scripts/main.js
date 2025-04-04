@@ -88,9 +88,6 @@ function dateTimeHandler() {
 /**
  * Handler for form
  */
-/**
- * Handler for form
- */
 function formSubmitHandler(e) {
     // //Prevent sending to a server
     // e.preventDefault();
