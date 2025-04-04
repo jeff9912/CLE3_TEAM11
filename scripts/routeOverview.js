@@ -81,7 +81,7 @@ function displayTrips(data) {
     // Reiskop tonen
     const departure = localStorage.getItem("departure");
     const arrival = localStorage.getItem("arrival");
-    const tripHeader = document.createElement("h3");
+    const tripHeader = document.createElement("h2");
     tripHeader.innerText = `${departure} ➞ ${arrival}`;
     header.appendChild(tripHeader);
 
@@ -105,7 +105,7 @@ function createTripCard(trip) {
     // Tijd weergave
     const timeDiv = document.createElement("div");
     timeDiv.classList.add("time");
-    timeDiv.innerHTML = `<h2>${departureTime} ➞ ${arrivalTime}</h2>`;
+    timeDiv.innerHTML = `<h3>${departureTime} ➞ ${arrivalTime}</h3>`;
 
     // Soort trein
     const trainDiv = document.createElement("div");
