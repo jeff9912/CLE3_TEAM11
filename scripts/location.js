@@ -8,6 +8,7 @@
 window.addEventListener("load", init)
 let voorbeeldLang = 51.91808260037158;
 let voorbeeldLong = 4.480989201855333;
+let voorbeeldStation = 'Beurs';
 
 // metro beurs ^^
 
@@ -15,8 +16,13 @@ let voorbeeldLong = 4.480989201855333;
 function init() {
 
     getLocation()
+}
 
-    // window.sharedMessage       //2 javascript bestanden laten communiceren
+function speak() {
+    // msg = is het spraakbericht
+    const msg = new SpeechSynthesisUtterance(voorbeeldStation + '15 minuten');
+    msg.lang = "nl-NL";
+    window.speechSynthesis.speak(msg);
 }
 
 function getLocation() {
@@ -34,6 +40,7 @@ function successHandler(data) {
     let myCurrentLat = data.coords.latitude
     let myCurrentLong = data.coords.longitude
     haversine(myCurrentLat, myCurrentLong, voorbeeldLang, voorbeeldLong)
+    //^^ belangrijk, dit rekent uit verschil latitude/longitude
 }
 
 
@@ -66,13 +73,15 @@ function haversine(lat1, lon1, lat2, lon2) {
 
     // verschil in meter
     const distance = R * c * 1000;
+
     console.log(distance)
     distanceCheck(distance)
 }
 
 function distanceCheck(distance) {
-    if (distance < 50) {
-        console.log('binnen 50 meter')
-        //miles audio komt hier
+    //afstand aanpassen en meer if's toevoegen
+    if (distance < 200) {
+        console.log('binnen 200 meter')
+        speak()
     }
 }

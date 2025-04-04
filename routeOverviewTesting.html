@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NS Reisplanner</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="scripts/routeOverview.js" defer></script>
+    <script type="text/javascript" src="scripts/settings.js" defer></script>
+    <script type="text/javascript" src="scripts/location.js" defer></script>
+    <!--    <script type="text/javascript" src="scripts/ttsFrontEnd.js" defer></script>-->
+
+</head>
+<body>
+<!-- Header met richting en treininfo -->
+<header>
+    <div class="route-header">
+        <div class="richting">
+            <p><strong>Richting:</strong> <span id="richting-text">test test test</span></p>
+        </div>
+        <div class="trein-nummer">
+            <p>6</p>
+        </div>
+    </div>
+    <div class="volgende">
+        <p><strong>Volgende:</strong> <span id="volgende-text">test test test</span></p>
+    </div>
+</header>
+<main>
+    <!-- Header waarin vertrek- en aankomststation worden getoond -->
+    <header>
+        <!-- Wordt dynamisch gevuld met de route titel, zoals 'Amsterdam Centraal ➞ Utrecht Centraal' -->
+    </header>
+
+    <!-- Container waarin de opties (kaartjes met reisinformatie) worden geplaatst -->
+    <section id="travelOptions">
+        <!-- Wordt gevuld met tripkaarten door JavaScript -->
+    </section>
+    <!-- Eventuele foutmeldingen komen hier terecht -->
+    <div id="errorContainer"></div>
+    <div class="buttons">
+        <button onclick="window.history.back()">Vorige Route</button>
+        <button onclick="window.location.reload()">Volgende Route</button>
+    </div>
+</main>
+
+</body>
+</html>
