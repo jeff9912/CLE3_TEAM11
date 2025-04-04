@@ -71,8 +71,8 @@ function setupTrainAutocompleteDatalist() {
 }
 
 function dateTimeHandler() {
-    const dateFormInput = document.getElementById('tijd');
-    const timeFormInput = document.getElementById('datum');
+    const dateFormInput = document.getElementById('datum');
+    const timeFormInput = document.getElementById('tijd');
 
     const now = new Date();
     const today = now.toISOString().split('T')[0]; //Today in Year - month - day format
