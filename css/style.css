@@ -6,7 +6,7 @@
     color: black;
 }
 
-/* verwijdert random witruimte overal */
+
 
 body {
     padding: 2vh 0;
@@ -15,11 +15,14 @@ body {
 form{
     display: flex;
     padding: 0;
+
 }
 
 .center_container {
     display: flex;
     justify-content: center;
+    min-width: 75vw;
+
 }
 
 
@@ -27,8 +30,8 @@ form{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
-    width: 80vw;
+    min-height: 20vh;
+    min-width: 70vw;
     border-style: solid;
     text-decoration: none;
     text-align: center;
@@ -38,6 +41,7 @@ form{
 
 #pijltjes_vertrek_eind {
     height: 15vh;
+
 }
 
 
@@ -71,7 +75,7 @@ form{
 .zoeken button {
     padding: 3vh 10vw;
     border-radius: 1vw;
-    font-weight: bold;
-    font-size: 2rem;
+
+
 }
 

@@ -47,17 +47,19 @@ body {
 
 /* Form elements */
 .route, .time, select, button, textarea, .test-class, .center_container, .vertrek_eind,
-#startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, button  {
+#startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, .zoeken button  {
+
     font-family: var(--font-family);
     font-size: calc(var(--font-size) * 0.9);
     padding: calc(var(--input-padding) * 0.8);
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
     background-color: var(--bg-color);
     color: var(--text-color);
-    border-radius: 4px;
-    margin: 5px 0;
+
+    margin: 1vh 0;
     width: 100%;
-    max-width: 300px;
+    max-width: 40vw;
     box-sizing: border-box;
 }
 
