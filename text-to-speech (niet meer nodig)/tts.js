@@ -1,4 +1,4 @@
-const textToSpeech = require('@google-cloud/text-to-speech');
+const textToSpeech = require('@google-cloud/text-to-speech (niet meer nodig)');
 const fs = require('fs');
 const util = require('util');
 
@@ -22,9 +22,9 @@ const texts = [
 // Functie die één tekst omzet en wegschrijft als audio-bestand
 async function speak(text, index) {
     const request = {
-        input: { text },
-        voice: { languageCode: 'nl-NL', ssmlGender: 'NEUTRAL' },
-        audioConfig: { audioEncoding: 'MP3' },
+        input: {text},
+        voice: {languageCode: 'nl-NL', ssmlGender: 'NEUTRAL'},
+        audioConfig: {audioEncoding: 'MP3'},
     };
 
     const [response] = await client.synthesizeSpeech(request);

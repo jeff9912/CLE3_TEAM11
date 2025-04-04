@@ -47,7 +47,7 @@ function ajaxRequest(url, successHandler) {
  */
 function handleStationData(data) {
     nsData = data.payload; // Payload containing stations
-    console.log('Stations geladen:', nsData);
+    // console.log('Stations geladen:', nsData);
 
     // starts autocomplete function
     setupTrainAutocompleteDatalist();
@@ -67,7 +67,7 @@ function setupTrainAutocompleteDatalist() {
         datalist.appendChild(option);
     });
 
-    console.log('Datalist gevuld met stations:', stationNames.length);
+    // console.log('Datalist gevuld met stations:', stationNames.length);
 }
 
 function dateTimeHandler() {
@@ -81,8 +81,7 @@ function dateTimeHandler() {
     dateFormInput.value = today;
     timeFormInput.value = currentTime;
 
-    console.log(today);
-    console.log(currentTime);
+
 }
 
 /**
@@ -94,30 +93,60 @@ function formSubmitHandler(e) {
     const date = document.getElementById("datum").value;
     const time = document.getElementById("tijd").value;
 
+    //validation
+    const dateFormInput = document.getElementById('datum');
+    const timeFormInput = document.getElementById('tijd');
+
+    //tijd en datum nu ophalen
+    const now = new Date();
+    const today = now.toISOString().split('T')[0]; //Today in Year - month - day format
+    const currentTime = now.toTimeString().split(':').slice(0, 2).join(':'); //Current time in Hours:Minutes format
+
+    //check of datum in verleden is
+    if (dateFormInput.value < today) {
+        //als datum in het verleden, word datum en tijd vandaag
+        dateFormInput.value = today
+        timeFormInput.value = now
+    }
+    //check of tijd in het verleden is
+    else if (timeFormInput.value < currentTime) {
+        timeFormInput.value = now
+    }
+
+    //datum + tijd samen voegen
     const dateTimeString = `${date}T${time}:00`;
     const dateTime = new Date(dateTimeString);
 
+    //alles meesturen in localstorage
     localStorage.setItem("departure", departure);
     localStorage.setItem("arrival", arrival);
     localStorage.setItem("datetime", dateTime.toISOString());
 
     console.log('Reis zoeken van:', departure, 'naar:', arrival, 'op:', date, time)
 
-    window.location.href = "routeOverview.html";
+    // dit zorgt ervoor dat departure en arrival niet hetzelfde kunnen zijn,
+    // wanneer dit wel zo is wordt de gebruiker niet doorverwezen
+    if (departure === arrival) {
+        e.preventDefault()
+    }
+    if (departure !== arrival) {
+        window.location.href = "routeOverview.html";
+    }
 }
 
 /**
  * error handler
  */
 function ajaxErrorHandler(error) {
-    console.error(error);
-
     const message = document.createElement('div');
     message.classList.add('error');
     message.innerHTML = 'Er is iets fout gegaan bij het ophalen van gegevens.';
     form.before(message);
+
+    console.error(error);
 }
 
+//deze functie zorgt ervoor dat de stations kunnen wisselen als je op het icoontje klikt
 function switchStations(event) {
     let departure = document.getElementById("startpunt");
     let arrival = document.getElementById("eindpunt");
