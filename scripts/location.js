@@ -11,18 +11,16 @@ let voorbeeldLong = 4.480989201855333;
 let voorbeeldStation = 'Beurs';
 
 // metro beurs ^^
+let departure
 
+// trigger de flash aan of uit, moeten global omdat meerdere functies gebruiken
+let flashInterval
+let body
 
 function init() {
-
     getLocation()
-}
 
-function speak() {
-    // msg = is het spraakbericht
-    const msg = new SpeechSynthesisUtterance(voorbeeldStation + '15 minuten');
-    msg.lang = "nl-NL";
-    window.speechSynthesis.speak(msg);
+    departure = localStorage.getItem('departure')
 }
 
 function getLocation() {
@@ -78,10 +76,37 @@ function haversine(lat1, lon1, lat2, lon2) {
     distanceCheck(distance)
 }
 
+//werkt soms niet idk??
+function speak() {
+    // msg = is het spraakbericht
+    let messageTTS = departure + ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+    const msg = new SpeechSynthesisUtterance(messageTTS);
+    msg.lang = "nl-NL";
+    window.speechSynthesis.speak(msg);
+}
+
+
+function flashScreen() {
+    body = document.querySelector('body')
+    let colors = ['#FF0000', '#006EFF', '#FFFFFF', '#000000']
+    let colorIndex = 0;
+    flashInterval = setInterval(function () {
+        body.style.backgroundColor = colors[colorIndex]
+        colorIndex++
+        colorIndex = colorIndex % colors.length
+    }, 200)
+}
+
 function distanceCheck(distance) {
     //afstand aanpassen en meer if's toevoegen
     if (distance < 200) {
         console.log('binnen 200 meter')
         speak()
+        flashScreen()
+    }
+
+    if (distance > 300) {
+        body.style.backgroundColor = 'white'
+        clearInterval(flashInterval)
     }
 }
