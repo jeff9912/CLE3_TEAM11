@@ -9,11 +9,11 @@ let form;
  */
 function init() {
     const apiUrl = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations?limit=10';
-    ajaxRequest(apiUrl, handleStationData);
 
     form = document.querySelector('form');
     form.addEventListener('submit', formSubmitHandler);
 
+    ajaxRequest(apiUrl, handleStationData);
     dateTimeHandler();
 
     // dit zorgt ervoor dat de pijlen werken van de station switch
@@ -71,8 +71,8 @@ function setupTrainAutocompleteDatalist() {
 }
 
 function dateTimeHandler() {
-    const dateFormInput = document.getElementById('datum');
-    const timeFormInput = document.getElementById('tijd');
+    const dateFormInput = document.getElementById('tijd');
+    const timeFormInput = document.getElementById('datum');
 
     const now = new Date();
     const today = now.toISOString().split('T')[0]; //Today in Year - month - day format
@@ -81,20 +81,18 @@ function dateTimeHandler() {
     dateFormInput.value = today;
     timeFormInput.value = currentTime;
 
-    // console.log(today);
-    // console.log(currentTime);
+    console.log(today);
+    console.log(currentTime);
 }
 
 /**
  * Handler for form
  */
 function formSubmitHandler(e) {
-    // //Prevent sending to a server
-    // e.preventDefault();
     const departure = document.getElementById("startpunt").value;
     const arrival = document.getElementById("eindpunt").value;
-    const date = document.getElementById("tijd").value;
-    const time = document.getElementById("datum").value;
+    const date = document.getElementById("datum").value;
+    const time = document.getElementById("tijd").value;
 
     const dateTimeString = `${date}T${time}:00`;
     const dateTime = new Date(dateTimeString);
@@ -104,6 +102,8 @@ function formSubmitHandler(e) {
     localStorage.setItem("datetime", dateTime.toISOString());
 
     console.log('Reis zoeken van:', departure, 'naar:', arrival, 'op:', date, time)
+
+    window.location.href = "routeOverview.html";
 }
 
 /**
