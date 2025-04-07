@@ -113,13 +113,6 @@ function displayTrips(data) {
     tripHeader.innerText = `${departure} ➞ ${arrival}`;
     header.appendChild(tripHeader);
 
-    // // Reizen weergeven
-    // data.trips.forEach(trip => {
-    //     const card = createTripCard(trip);
-    //     optionsContainer.appendChild(card);
-    //     card.addEventListener("click", redirect);
-    // });
-
     allTrips = data.trips;
     currentTripIndex = 0;
 
@@ -151,6 +144,8 @@ function createTripCard(trip) {
     const card = document.createElement("div");
     card.classList.add("optie");
     card.addEventListener("click", redirect);
+    card.dataset.id = currentTripIndex;
+    console.log(currentTripIndex);
 
     // Tijden ophalen
     const departureTime = formatTime(trip.legs[0].origin.plannedDateTime);
@@ -210,7 +205,12 @@ function formatTime(dateTimeString) {
 /**
  * Redirect de gebruiker naar de routepagina.
  */
-function redirect() {
+function redirect(e) {
+    let clickedCard = e.currentTarget;
+    let tripId = clickedCard.dataset.id;
+
+    let selectedTrip = allTrips[tripId];
+    localStorage.setItem("selectedTrip", JSON.stringify(selectedTrip));
     window.location.href = "routeDetails.html";
 }
 
