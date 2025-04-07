@@ -34,9 +34,21 @@
     </div>
 
     <label>
-      Font Size:
-      <input type="range" id="font-size" min="12" max="50" value="30">
+      <input type="radio" name="theme" value="yellow" checked> yellow Theme
     </label>
+    <label>
+      <input type="radio" name="theme" value="green" checked> Green Theme
+    </label>
+    <label>
+      <input type="radio" name="theme" value="high-contrast" checked> hoge contrast
+    </label>
+
+<div>
+    <label>
+      Font Size:
+      <input type="range" id="font-size" min="12" max="50" value="30" step="0.0001">
+    </label>
+  </div>
     <!-- NEW: Font family selector -->
     <label>
       Font Family:

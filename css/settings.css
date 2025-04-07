@@ -1,12 +1,12 @@
 /* Consolidated :root variables */
 :root {
     /* Color variables */
-    --bg-color: #f3f3f3;
+    --bg-color: #f1f6f6;
     --text-color: #020202;
-    --primary-color: #4285f4;
-    --border-color: #676767;
-    --input-bg-color: #676767;
-
+    --primary-color: #006cdc;
+    --border-color: #757575;
+    --input-bg-color: #757575;
+    --placeholder-color:#757575;
 
     /* Font variables */
     --font-size: 16px;
@@ -14,6 +14,11 @@
     --font-family: Arial, sans-serif;
 }
 
+input::placeholder,
+textarea::placeholder {
+    color: var(--placeholder-color);
+    opacity: 1; /* Ensures full visibility (some browsers reduce opacity) */
+}
 
 /* Theme overrides */
 
@@ -26,26 +31,28 @@
     --text-color: #f1ecec;
     --primary-color: #8ab4f8;
     --border-color: #c1baba;
+    --placeholder-color: #f1ecec;
 }
 /*/////////////////////////////////         BLUE                   ///////////////////////////////////////////////////////*/
 
 [data-theme="blue"] {
     --bg-color: #e6f0ff;
-    --text-color: #003366;
+    --text-color: #131001;
     --primary-color: #0066cc;
     --border-color: #99c2ff;
+    --placeholder-color: #000000;
 }
 
 [data-theme="blue"] input, center_container zoeken{
     --bg-color: #58a0e1;
-    --text-color: #0066cc;
+    --text-color: #020e19;
 }
 
 
 
-[data-theme="blue"] #zoeken {
-    --bg-color: #5aa7d1;
-    --text-color: #003366;
+[data-theme="blue"] button {
+    --bg-color: #58a0e1;
+    --text-color: #010d17;
 }
 
 /*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
@@ -56,6 +63,7 @@
     --text-color: #dccfa3;
     --primary-color: #504f2b;
     --border-color: #fff2a0;
+    --placeholder-color: #1c1601;
 
 }
 
@@ -66,7 +74,7 @@
 
 }
 
-[data-theme="lilac"] #zoeken {
+[data-theme="lilac"] button {
     --bg-color: #fff2a0;
     --text-color: #1c1601;
     --border-color: #fff2a0;;
@@ -74,7 +82,7 @@
 }
 
 [data-theme="lilac"] #settings-button-id {
-    --bg-color: #fff2a0;
+    --bg-color: #88CCEE;
     --text-color: #1c1601;
     --border-color: #fff2a0;;
 
@@ -82,6 +90,89 @@
 
 
 /*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
+
+[data-theme="yellow"] {
+    --bg-color: #fff2a0;
+    --text-color: #062c0d;
+    --border-color: #CC6677;
+    --primary-color: #CC6677;
+    --placeholder-color: #062c0d;
+}
+
+[data-theme="yellow"] input, center_container zoeken{
+    --bg-color: #CC6677;
+    --text-color: #062c0d;
+}
+
+
+
+[data-theme="yellow"] button {
+
+    --bg-color: #CC6677;
+    --text-color: #062c0d;
+
+}
+
+/*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
+
+
+
+[data-theme="green"] {
+    --bg-color: #21231d;
+    --text-color: #e6e4ba;
+    --border-color: #2a4c20;
+    --primary-color: #337521;
+    --placeholder-color:#e6e4ba;
+
+}
+
+[data-theme="green"] input, center_container zoeken{
+    --bg-color: #2b7c23;
+    --text-color: #e6e4ba;
+
+}
+
+
+
+[data-theme="green"] button {
+
+    --bg-color: #2b7c23;
+    --text-color: #fff2a0;
+    --zoeken-color: #2b7c23;
+
+}
+
+/*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
+
+[data-theme="high-contrast"] {
+    --bg-color: #153a45;
+    --text-color: #fbf9f9;
+    --border-color: #FFA500;
+    --primary-color: #4169E1;
+    --placeholder-color: #314da3;
+
+}
+
+[data-theme="high-contrast"] input, center_container zoeken{
+    --bg-color: #FFA500;
+    --text-color: #000000;
+
+}
+
+
+
+[data-theme="high-contrast"] button {
+
+    --bg-color: #FFA500;
+    --text-color: #000000;
+    --zoeken-color: #FFA500;
+
+}
+
+
+
+
+
 /* Base styles */
 body {
     background-color: var(--bg-color);
