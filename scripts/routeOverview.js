@@ -5,6 +5,7 @@ let infoUrl;
 let allTrips = [];
 let currentTripIndex = 0;
 
+
 /**
  * Initialize after the DOM is ready
  */
@@ -99,6 +100,9 @@ function tripsLoading(departure, arrival, datetime) {
  */
 function displayTrips(data) {
     console.log(data);
+    window.latitude = (data.trips[0].fareLegs[0].destination.lat)
+    window.longitude = data.trips[0].fareLegs[0].destination.lng;
+    console.log(data.trips[0].fareLegs[0].destination)
     const header = document.querySelector("header");
     const optionsContainer = document.querySelector("#travelOptions");
     const navButtons = document.getElementById("navigationButtons");
@@ -198,7 +202,7 @@ function updateTripCounter() {
 
 function formatTime(dateTimeString) {
     const date = new Date(dateTimeString);
-    return date.toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" });
+    return date.toLocaleTimeString("nl-NL", {hour: "2-digit", minute: "2-digit"});
 }
 
 

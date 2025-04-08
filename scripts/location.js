@@ -6,21 +6,23 @@
 // 3. als locaties in de buurt komen maak een melding
 
 window.addEventListener("load", init)
-let voorbeeldLang = 51.91808260037158;
-let voorbeeldLong = 4.480989201855333;
-let voorbeeldStation = 'Beurs';
 
-// metro beurs ^^
-let departure
+
+departure = localStorage.getItem('departure')
+arrival = localStorage.getItem('arrival')
+let messageTTS500Meter = 'over 500 meter ben je bij' + arrival;
+let messageTTS200Meter = 'over 200 meter ben je bij' + arrival;
+let messageTTSAankomst = 'je bent nu aangekomen bij' + arrival;
 
 // trigger de flash aan of uit, moeten global omdat meerdere functies gebruiken
 let flashInterval
 let body
 
+
 function init() {
     getLocation()
 
-    departure = localStorage.getItem('departure')
+
 }
 
 function getLocation() {
@@ -35,10 +37,15 @@ function getLocation() {
 }
 
 function successHandler(data) {
-    let myCurrentLat = data.coords.latitude
-    let myCurrentLong = data.coords.longitude
-    haversine(myCurrentLat, myCurrentLong, voorbeeldLang, voorbeeldLong)
-    //^^ belangrijk, dit rekent uit verschil latitude/longitude
+    setTimeout(() => {
+        let myCurrentLat = data.coords.latitude;
+        let myCurrentLong = data.coords.longitude;
+        let latitude = window.latitude;
+        let longitude = window.longitude;
+        haversine(myCurrentLat, myCurrentLong, latitude, longitude);
+        //^^ belangrijk, dit rekent uit verschil latitude/longitude
+    }, 4000);
+
 }
 
 
@@ -72,14 +79,12 @@ function haversine(lat1, lon1, lat2, lon2) {
     // verschil in meter
     const distance = R * c * 1000;
 
-    console.log(distance)
     distanceCheck(distance)
 }
 
 //werkt soms niet idk??
-function speak() {
+function speak(messageTTS) {
     // msg = is het spraakbericht
-    let messageTTS = departure + ' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
     const msg = new SpeechSynthesisUtterance(messageTTS);
     msg.lang = "nl-NL";
     window.speechSynthesis.speak(msg);
@@ -99,13 +104,23 @@ function flashScreen() {
 
 function distanceCheck(distance) {
     //afstand aanpassen en meer if's toevoegen
-    if (distance < 200) {
-        console.log('binnen 200 meter')
-        speak()
-        flashScreen()
+    console.log(distance)
+
+    if (distance < 500) {
+        speak(messageTTS500Meter)
     }
 
-    if (distance > 300) {
+    if (distance < 200) {
+        speak(messageTTS200Meter)
+    }
+
+    if (distance <= 50) {
+        speak(messageTTSAankomst)
+        flashScreen()
+
+    }
+
+    if (distance > 50) {
         body.style.backgroundColor = 'white'
         clearInterval(flashInterval)
     }
