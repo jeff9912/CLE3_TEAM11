@@ -108,6 +108,8 @@ function formSubmitHandler(e) {
     //validation
     const dateFormInput = document.getElementById('datum');
     const timeFormInput = document.getElementById('tijd');
+    const startPuntInput = document.getElementById('startpunt');
+    const eindPuntInput = document.getElementById('eindpunt')
 
     //tijd en datum nu ophalen
     const now = new Date();
@@ -124,6 +126,15 @@ function formSubmitHandler(e) {
     else if (timeFormInput.value < currentTime) {
         timeFormInput.value = now
     }
+    if (departure === arrival) {
+        e.preventDefault()
+    }
+    if (startPuntInput.value === '' || eindPuntInput.value === '') {
+        return false;
+    }
+    if (startPuntInput.value !== '' || eindPuntInput.value !== '' || departure !== arrival) {
+        window.location.href = "routeOverview.html";
+    }
 
     //datum + tijd samen voegen
     const dateTimeString = `${date}T${time}:00`;
@@ -138,12 +149,7 @@ function formSubmitHandler(e) {
 
     // dit zorgt ervoor dat departure en arrival niet hetzelfde kunnen zijn,
     // wanneer dit wel zo is wordt de gebruiker niet doorverwezen
-    if (departure === arrival) {
-        e.preventDefault()
-    }
-    if (departure !== arrival) {
-        window.location.href = "routeOverview.html";
-    }
+
 }
 
 /**
