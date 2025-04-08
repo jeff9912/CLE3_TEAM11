@@ -10,8 +10,8 @@ window.addEventListener("load", init)
 
 departure = localStorage.getItem('departure')
 arrival = localStorage.getItem('arrival')
-let messageTTS500Meter = 'over 500 meter ben je bij' + arrival;
-let messageTTS200Meter = 'over 200 meter ben je bij' + arrival;
+let messageTTS500Meter = 'binnen 500 meter ben je bij' + arrival;
+let messageTTS200Meter = 'binnen 200 meter ben je bij' + arrival;
 let messageTTSAankomst = 'je bent nu aangekomen bij' + arrival;
 
 // trigger de flash aan of uit, moeten global omdat meerdere functies gebruiken
@@ -104,7 +104,7 @@ function flashScreen() {
 
 function distanceCheck(distance) {
     //afstand aanpassen en meer if's toevoegen
-    console.log(distance)
+    console.log('afstand is:' + distance)
 
     if (distance < 500) {
         speak(messageTTS500Meter)
