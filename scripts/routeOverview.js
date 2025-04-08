@@ -153,36 +153,41 @@ function createTripCard(trip) {
     card.dataset.id = currentTripIndex;
     console.log(currentTripIndex);
 
-// Tijden ophalen
-    const departureTime = formatTime(trip.legs[0].origin.plannedDateTime);
-    const arrivalTime = formatTime(trip.legs[trip.legs.length - 1].destination.plannedDateTime);
+    // Eerste en laatste leg bepalen
+    const firstLeg = trip.legs[0];
+    const lastLeg = trip.legs[trip.legs.length - 1];
 
-// Tijd weergave (blijft hetzelfde, CSS maakt het groter)
+    const departureTime = formatTime(firstLeg.origin.plannedDateTime);
+    const arrivalTime = formatTime(lastLeg.destination.plannedDateTime);
+
+    // Perroninformatie ophalen (indien beschikbaar)
+    const departurePlatform = firstLeg.origin.plannedTrack ?? "Onbekend";
+    const arrivalPlatform = lastLeg.destination.plannedTrack ?? "Onbekend";
+
+    // Tijd weergave
     const timeDiv = document.createElement("div");
     timeDiv.classList.add("time");
-    timeDiv.innerHTML = `<h3>${departureTime} ➞ ${arrivalTime}</h3>`;
+    timeDiv.innerHTML = `
+        <h3>${departureTime} ➞ ${arrivalTime}</h3>
+        <p>Vertrek perron: ${departurePlatform}</p>
+        <p>Aankomst perron: ${arrivalPlatform}</p>
+    `;
 
     // Soort trein
     const trainDiv = document.createElement("div");
     trainDiv.classList.add("train_div");
-    trainDiv.innerHTML = `<img src="images/trein_icon.png" alt="Trein icoon"><p class="trein">${trip.legs[0].product.displayName}</p>`;
-    // perron weergave
-    // const perron = document.createElement("div");
-    // perron.classList.add("perron");
-    // perron.innerHTML = <p>${plannedTrack}</p>
+    trainDiv.innerHTML = `<p class="trein">${firstLeg.product.displayName}</p>`;
+
     // Reisinformatie
     const info = document.createElement("div");
     info.classList.add("info");
     info.innerHTML = `
         <div>
-            <img src="images/klok_icon.png" alt="Tijd">
             <p class="duratie">${trip.actualDurationInMinutes} minuten</p>
         </div>
         <div>
-            <img src="images/overstap_icon.png" alt="Overstappen">
-            <p>${trip.legs.length - 1}</p>
+            <p>${trip.legs.length - 1} overstap(pen)</p>
         </div>
-
     `;
 
     // Elementen toevoegen
