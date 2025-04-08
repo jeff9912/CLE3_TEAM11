@@ -111,10 +111,12 @@ function displayTrips(data) {
     optionsContainer.innerHTML = "";
 
     // Reiskop tonen
+
     const departure = localStorage.getItem("departure");
     const arrival = localStorage.getItem("arrival");
     const tripHeader = document.createElement("h2");
-    tripHeader.innerText = `${departure} ➞ ${arrival}`;
+// Zet de bestemming op een nieuwe regel
+    tripHeader.innerHTML = `${departure} <span class="arrow">➞ ${arrival}</span>`;
     header.appendChild(tripHeader);
 
     allTrips = data.trips;
@@ -151,11 +153,11 @@ function createTripCard(trip) {
     card.dataset.id = currentTripIndex;
     console.log(currentTripIndex);
 
-    // Tijden ophalen
+// Tijden ophalen
     const departureTime = formatTime(trip.legs[0].origin.plannedDateTime);
     const arrivalTime = formatTime(trip.legs[trip.legs.length - 1].destination.plannedDateTime);
 
-    // Tijd weergave
+// Tijd weergave (blijft hetzelfde, CSS maakt het groter)
     const timeDiv = document.createElement("div");
     timeDiv.classList.add("time");
     timeDiv.innerHTML = `<h3>${departureTime} ➞ ${arrivalTime}</h3>`;
@@ -164,7 +166,10 @@ function createTripCard(trip) {
     const trainDiv = document.createElement("div");
     trainDiv.classList.add("train_div");
     trainDiv.innerHTML = `<img src="images/trein_icon.png" alt="Trein icoon"><p class="trein">${trip.legs[0].product.displayName}</p>`;
-
+    // perron weergave
+    // const perron = document.createElement("div");
+    // perron.classList.add("perron");
+    // perron.innerHTML = <p>${plannedTrack}</p>
     // Reisinformatie
     const info = document.createElement("div");
     info.classList.add("info");
@@ -177,6 +182,7 @@ function createTripCard(trip) {
             <img src="images/overstap_icon.png" alt="Overstappen">
             <p>${trip.legs.length - 1}</p>
         </div>
+
     `;
 
     // Elementen toevoegen

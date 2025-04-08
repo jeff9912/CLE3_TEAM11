@@ -1,4 +1,4 @@
-/* Reset en basis stijlen */
+/* Reset en basis stijlen voor toegankelijkheid */
 * {
     margin: 0;
     padding: 0;
@@ -8,149 +8,224 @@
 
 body {
     background-color: #f5f5f5;
-    color: #333;
-    line-height: 1.6;
-    padding-bottom: 20px;
+    color: #000; /* Donkerder voor beter contrast */
+    line-height: 1.8; /* Meer lijnhoogte voor leesbaarheid */
+    padding-bottom: 30px;
+    font-size: 18px; /* Grotere basistekst */
 }
 
 /* Header stijlen */
 header {
     background-color: #003082; /* NS blauw */
     color: white;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sterkere schaduw */
+    text-align: center; /* Centreer alle tekst in de header */
+    margin-bottom: 20px; /* Voeg witruimte toe onder de header */
 }
 
-.route-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
+header h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
 }
 
-.richting {
-    font-size: 1.1rem;
-}
-
-.richting p {
-    margin: 0;
-}
-
-.trein-nummer {
-    background-color: #FFC917; /* NS geel */
-    color: #003082;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-}
-
-.trein-nummer p {
-    margin: 0;
-}
-
-.volgende {
-    font-size: 0.9rem;
-    opacity: 0.9;
+/* Stijl voor "➞" pijl in de h2 */
+header h2 span.arrow {
+    display: block; /* Zet pijl en bestemming op nieuwe regel */
+    margin-top: 5px;
 }
 
 /* Main content stijlen */
 main {
-    max-width: 800px;
+    max-width: 900px; /* Breder */
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 25px 25px 25px; /* Verwijder padding aan bovenkant */
+}
+
+/* Volgende overstap blok */
+.next-transfer-block {
+    background-color: #e0e0e0;
+    border-radius: 8px; /* Afgeronde hoeken rondom */
+    padding: 15px;
+    margin: 0 0 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-left: 5px solid #003082; /* NS blauwe rand links */
+}
+
+.next-transfer-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #003082;
+}
+
+.next-transfer-info {
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 /* Reisopties stijlen */
 #travelOptions {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px; /* Meer ruimte tussen items */
     margin-bottom: 20px;
 }
 
-/* Route indicator tekst */
-.route-indicator {
-    text-align: right;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* Stijl voor individuele reisopties (zal worden toegevoegd door JS) */
-.trip-card {
+/* Stijl voor individuele reisopties */
+.optie {
     background-color: white;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* Rondere hoeken */
+    padding: 20px; /* Meer padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sterkere schaduwen */
     transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #ddd; /* Extra rand voor contrast */
+    cursor: pointer;
 }
 
-.trip-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+.optie:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
-.trip-card .departure-time {
+/* Tijdweergave in reisopties */
+.time {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.time h3 {
+    font-size: 2.1rem; /* Grotere tijdsweergave */
     font-weight: bold;
     color: #003082;
+    text-align: center;
+}
+
+/* Treininformatie */
+.train_div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.train_div img {
+    width: 24px;
+    height: 24px;
+}
+
+.train_div .trein {
     font-size: 1.2rem;
+    color: #333;
 }
 
-.trip-card .arrival-time {
+/* Reis-informatie (duur en overstappen) */
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    border-top: 2px solid #eee;
+    padding-top: 15px;
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info img {
+    width: 24px;
+    height: 24px;
+}
+
+.info p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.info .duratie {
     font-weight: bold;
-}
-
-.trip-card .duration {
-    color: #666;
-}
-
-.trip-card .transfers {
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid #eee;
 }
 
 /* Navigatieknoppen stijlen */
 #navigationButtons {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 15px; /* Ruimte tussen knoppen */
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
 }
 
 button {
     background-color: #003082;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
+    padding: 15px 25px; /* Grotere knoppen */
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.2s;
     text-align: center;
-    min-width: 150px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.2rem; /* Grotere tekst */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Schaduw voor diepte */
 }
 
 button:hover {
     background-color: #002266;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 button:disabled {
-    background-color: #cccccc;
+    background-color: #777; /* Donkerder grijs voor beter contrast */
     cursor: not-allowed;
 }
 
-/* Foutmeldingen */
-#errorContainer {
+button:focus {
+    outline: 3px solid #FFC917; /* Duidelijke focus-indicator */
+    outline-offset: 3px;
+}
+
+/* Trip counter */
+#tripCounter {
     margin-top: 20px;
-    padding: 10px;
-    background-color: #ffebee;
-    color: #c62828;
-    border-radius: 4px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #003082;
+    text-align: center;
+    background-color: #eaf1ff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 2px solid #003082;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+
+/* Foutmeldingen */
+.error, #errorContainer {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #ffcccc; /* Lichter rood, beter contrast met tekst */
+    color: #990000; /* Donkerder rood voor leesbare tekst */
+    border-radius: 8px;
+    font-size: 1.2rem;
+    border: 2px solid #cc0000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#errorContainer {
     display: none; /* Standaard verborgen */
 }
 
@@ -159,33 +234,39 @@ button:disabled {
 }
 
 /* Responsieve aanpassingen */
-@media (max-width: 600px) {
+@media (max-width: 700px) { /* Verhoogd van 600px naar 700px voor betere toegankelijkheid */
     header {
-        padding: 10px;
-    }
-
-    main {
         padding: 15px;
     }
 
-    .richting {
-        font-size: 1rem;
+    header h2 {
+        font-size: 1.4rem;
     }
 
-    .trein-nummer {
-        width: 25px;
-        height: 25px;
-        font-size: 0.9rem;
+    .time h3 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 0 15px 20px 15px;
+    }
+
+    .optie {
+        padding: 15px;
     }
 
     #navigationButtons {
-        flex-direction: column-reverse;
-        gap: 10px;
-        align-items: center;
+        margin-top: 20px;
     }
+}
 
-    button {
-        width: 100%;
-        max-width: 300px;
-    }
+/* Extra aanpassingen voor visuele toegankelijkheid */
+a:focus, input:focus, select:focus {
+    outline: 3px solid #FFC917;
+    outline-offset: 3px;
+}
+
+/* Betere zichtbaarheid van focussable elementen */
+a, button, input, select, [tabindex]:not([tabindex="-1"]) {
+    transition: outline-offset 0.2s linear;
 }
