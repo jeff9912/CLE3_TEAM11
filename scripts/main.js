@@ -41,7 +41,7 @@ function ajaxRequest(url, successHandler) {
         method: 'GET',
         headers: {
             'Cache-Control': 'no-cache',
-            'Ocp-Apim-Subscription-Key': '51db8c2ac13b4ab59e961160d585b23d'
+            'Ocp-Apim-Subscription-Key': 'f7a4cfc82a4f436f9e325370015e0890'
         }
     })
         .then(response => {
