@@ -168,7 +168,7 @@ function createTripCard(trip) {
     const timeDiv = document.createElement("div");
     timeDiv.classList.add("time");
     timeDiv.innerHTML = `
-        <h3>${departureTime} ➞ ${arrivalTime}</h3>
+        <h2>${departureTime} ➞ ${arrivalTime}</h2>
         <p>Vertrek perron: ${departurePlatform}</p>
         <p>Aankomst perron: ${arrivalPlatform}</p>
     `;
