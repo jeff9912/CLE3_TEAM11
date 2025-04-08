@@ -216,6 +216,7 @@ function redirect(e) {
     let selectedTrip = allTrips[tripId];
     localStorage.setItem("selectedTrip", JSON.stringify(selectedTrip));
     window.location.href = "routeDetails.html";
+    console.log(selectedTrip)
 }
 
 function ajaxErrorHandler(error) {
