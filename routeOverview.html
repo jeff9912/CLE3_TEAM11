@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" data-theme="default">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NS Reisplanner</title>
     <link rel="stylesheet" href="css/routeOverview.css">
+    <link rel="stylesheet" href="css/settings.css">
     <script type="text/javascript" src="scripts/routeOverview.js" defer></script>
     <script type="text/javascript" src="scripts/settings.js" defer></script>
     <script type="text/javascript" src="scripts/location.js" defer></script>
 </head>
 <body>
 <!-- Header met richting en treininfo -->
-<header>
+<header class="header-overview">
     <!-- Header waarin vertrek- en aankomststation worden getoond -->
     <div class="route-header">
         <div class="richting">
@@ -46,6 +47,9 @@
     </div>
     <!-- Eventuele foutmeldingen komen hier terecht -->
     <div id="errorContainer"></div>
+    <section class="a-button">
+        <a href="index.htmll">Home</a>
+    </section>
 </main>
 </body>
 </html>

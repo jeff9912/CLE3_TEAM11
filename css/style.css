@@ -41,7 +41,8 @@ form {
 
 
 #pijltjes_vertrek_eind {
-    height: 15vh;
+    height: 10vh;
+
 
 }
 
@@ -53,15 +54,23 @@ form {
     align-items: center;
 }
 
-#label-time, #label-datum {
+label#label-time, label#label-datum {
     min-width: 70vw;
     min-height: 5vh;
+    margin-bottom: 2px;
+}
+label#label-datum{
+    margin-top: 10vh;
+}
+input#tijd, input#datum{
+    margin-top: 0px;
 }
 
 
 #tijd, #datum {
     min-width: 70vw;
     min-height: 7vh;
+    margin-top: 0px;
 }
 
 .tijd_sectie label {
@@ -97,3 +106,6 @@ form {
     align-items: center;
 }
 
+.a-button{
+    margin-top: 50vh;
+}
