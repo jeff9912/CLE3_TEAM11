@@ -58,6 +58,11 @@ label#label-time, label#label-datum {
     min-width: 70vw;
     min-height: 5vh;
     margin-bottom: 2px;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
 label#label-datum{
     margin-top: 10vh;

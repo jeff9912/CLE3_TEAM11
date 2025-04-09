@@ -1,4 +1,26 @@
 /* Consolidated :root variables */
+/*controlls*/
+
+div.font-family{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+}
+
+/* Ensure the dropdown itself maintains consistent styling */
+select#font-family {
+    font-family: inherit; /* or specify a default font */
+}
+
+/* For the options - this might not work in all browsers */
+select#font-family option {
+    font-family: inherit;
+}
+
+/*controlls*/
+
+
+
 :root {
     /* Color variables */
     --bg-color: #f1f6f6;
@@ -401,4 +423,5 @@ header, div.optie, #nextButton, #prevButton, #tripCounter, .next-transfer-block,
      margin: 1vh 0;
      width: 100%;
 }
+
 
