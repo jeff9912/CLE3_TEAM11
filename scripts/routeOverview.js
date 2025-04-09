@@ -100,8 +100,8 @@ function tripsLoading(departure, arrival, datetime) {
  */
 function displayTrips(data) {
     console.log(data);
-    window.latitude = (data.trips[0].fareLegs[0].destination.lat)
-    window.longitude = data.trips[0].fareLegs[0].destination.lng;
+    localStorage.setItem('latitude', data.trips[0].fareLegs[0].destination.lat)
+    localStorage.setItem('longitude', data.trips[0].fareLegs[0].destination.lng)
     console.log(data.trips[0].fareLegs[0].destination)
     const header = document.querySelector("header");
     const optionsContainer = document.querySelector("#travelOptions");
