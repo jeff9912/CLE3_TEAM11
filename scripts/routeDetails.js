@@ -107,6 +107,7 @@ function showDetailedTrip() {
 
 
 function createTripCard(trip) {
+    console.log(trip)
     const card = document.createElement("div");
     card.classList.add("optie");
 
@@ -132,7 +133,7 @@ function createTripCard(trip) {
             <p class="duratie">${trip.actualDurationInMinutes} minuten</p>
         </div>
         <div>
-            <p>${trip.legs.length - 1}</p>
+            <p>${trip.legs.length - 1} overstap(pen)</p>
         </div>
     `;
 
@@ -140,6 +141,55 @@ function createTripCard(trip) {
     timeDiv.appendChild(trainDiv);
     card.appendChild(timeDiv);
     card.appendChild(info);
+
+    for (const [i, train] of trip.legs.entries()) {
+        const legDiv = document.createElement("div");
+        legDiv.classList.add("leg");
+
+        const departure = formatTime(train.origin.plannedDateTime);
+        const arrival = formatTime(train.destination.plannedDateTime);
+        const from = train.origin.name;
+        const to = train.destination.name;
+        const trainName = train.product.displayName;
+        const trackDep = train.origin.plannedTrack || "-";
+        const trackArr = train.destination.plannedTrack || "-";
+
+        legDiv.innerHTML = `
+            <h4>${trainName} richting ${train.direction}</h4>
+            <p>Vertrek: ${from} om ${departure} op spoor ${trackDep}</p>
+            <p>Aankomst: ${to} om ${arrival} op spoor ${trackArr}</p>
+        `;
+
+        if (train.stops && train.stops.length > 2) {
+            const stopsList = document.createElement("ul");
+            stopsList.classList.add("stops");
+
+            for (let j = 1; j < train.stops.length - 1; j++) {
+                const stop = train.stops[j];
+                const stopTime = stop.plannedArrivalDateTime
+                    ? formatTime(stop.plannedArrivalDateTime)
+                    : "-";
+                const track = stop.plannedArrivalTrack || "-";
+                const stopItem = document.createElement("li");
+                stopItem.textContent = `${stop.name} om ${stopTime} (spoor ${track})`;
+                stopsList.appendChild(stopItem);
+            }
+
+            const stopsTitle = document.createElement("p");
+            stopsTitle.textContent = "Tussenstops:";
+            legDiv.appendChild(stopsTitle);
+            legDiv.appendChild(stopsList);
+        } else {
+            legDiv.innerHTML += `<p>Geen tussenstops</p>`;
+        }
+
+        if (i < trip.legs.length - 1) {
+            const transferTime = train.transferTimeToNextLeg || "-";
+            legDiv.innerHTML += `<p class="overstap">Overstap tijd: ${transferTime} minuten</p>`;
+        }
+
+        card.appendChild(legDiv);
+    }
 
     return card;
 }

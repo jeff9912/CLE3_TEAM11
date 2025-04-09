@@ -6,7 +6,7 @@
     <title>NS Reisplanner</title>
     <link rel="stylesheet" href="css/routeOverview.css">
     <script type="text/javascript" src="scripts/settings.js" defer></script>
-    <script defer src="scripts/routeDetails.js"></script>
+    <script type="text/javascript" src="scripts/routeDetails.js" defer></script>
     <script type="text/javascript" src="scripts/location.js" defer></script>
     
 </head>
@@ -16,14 +16,14 @@
     <!-- Header waarin vertrek- en aankomststation worden getoond -->
     <div class="route-header">
         <div class="richting">
-            <p><strong>Richting:</strong> <span id="richting-text">test test test</span></p>
+            <p> <span class="arrow"></span> <span class="route-destination"></span></p>
         </div>
         <div class="trein-nummer">
-            <p>6</p>
+            <p></p>
         </div>
     </div>
     <div class="volgende">
-        <p><strong>Volgende:</strong> <span id="volgende-text">test test test</span></p>
+        <p><strong></strong> <span id="volgende-text"></span></p>
     </div>
     <!-- Wordt dynamisch gevuld met de route titel, zoals 'Amsterdam Centraal ➞ Utrecht Centraal' -->
 </header>
@@ -32,6 +32,11 @@
     <section id="travelOptions">
         <!-- Wordt gevuld met tripkaarten door JavaScript -->
     </section>
+
+    <div id="navigationButtons" style="display: none;">
+        <button id="nextButton">Volgende route</button>
+        <button id="prevButton">Vorige route</button>
+    </div>
     <!-- Eventuele foutmeldingen komen hier terecht -->
     <div id="errorContainer"></div>
 </main>
