@@ -43,7 +43,7 @@ main {
 }
 
 /* Volgende overstap blok */
-.next-transfer-block {
+#transfer {
     background-color: #e0e0e0;
     border-radius: 8px; /* Afgeronde hoeken rondom */
     padding: 15px;
@@ -53,14 +53,14 @@ main {
     border-left: 5px solid #003082; /* NS blauwe rand links */
 }
 
-.next-transfer-title {
+.transferLook h3 {
     font-weight: bold;
     font-size: 1.2rem;
     margin-bottom: 5px;
     color: #003082;
 }
 
-.next-transfer-info {
+.transferLook p {
     font-size: 1.3rem;
     font-weight: bold;
 }

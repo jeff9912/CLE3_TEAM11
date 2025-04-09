@@ -153,15 +153,15 @@ function showCurrentTrip() {
 
 function createTransferCard(trip) {
     const transferCard = document.createElement("div");
-    transferCard.classList.add("optie");
 
-    const depStation = trip.legs[0].origin.name;
+    const transferStation = trip.legs[1].direction;
     const arrStation = trip.legs[trip.legs.length - 1].destination.name;
 
     const transfers = document.createElement("div");
+    transfers.classList.add("transferLook")
     transfers.innerHTML = `
-        <h3>Overstappen</h3>
-        <p>${trip.legs.length - 1} overstap(pen) van ${depStation} naar ${arrStation}</p>
+        <h3>Volgende</h3>
+        <p>${transferStation} naar ${arrStation}</p>
     `;
 
     transferCard.appendChild(transfers);
