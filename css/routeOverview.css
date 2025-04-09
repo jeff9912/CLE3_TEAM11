@@ -22,6 +22,7 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sterkere schaduw */
     text-align: center; /* Centreer alle tekst in de header */
     margin-bottom: 20px; /* Voeg witruimte toe onder de header */
+
 }
 
 header h2 {
