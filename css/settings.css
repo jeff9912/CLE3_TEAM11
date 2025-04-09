@@ -27,9 +27,10 @@ select#font-family option {
     --text-color: #020202;
     --primary-color: #006cdc;
     --border-color: #757575;
-    --input-bg-color: #757575;
-    --placeholder-color:#757575;
+    --input-bg-color: #aeabab;
+    --placeholder-color: #b5b1b1;
     --header-color: #f1f6f6;
+
 
 
 
@@ -140,27 +141,27 @@ textarea::placeholder {
     --primary-color: #504f2b;
     --border-color: #fff2a0;
     --placeholder-color: #1c1601;
-    --header-color: #d3a96c;
+    --header-color: #ede194;
 
 }
 
 [data-theme="lilac"] input{
-    --bg-color: #d3a96c;
+    --bg-color: #ede194;
     --text-color: #1c1601;
 
 
 }
 
 [data-theme="lilac"] button {
-    --bg-color: #81663e;
-    --text-color: #f5f9fa;
+    --bg-color: #ede194;
+    --text-color: #291b39;
     --border-color: #fff2a0;;
 
 }
 
 [data-theme="lilac"] #settings-button-id {
     --bg-color: #88CCEE;
-    --text-color: #f5f9fa;
+    --text-color: #291b39;
     --border-color: #fff2a0;;
 
 }
@@ -169,48 +170,54 @@ textarea::placeholder {
 
 [data-theme="lilac"] .next-transfer-block {
 
-    --bg-color: #81663e;
-    --text-color: #f5f9fa;
+    --bg-color: #fff2a0;
+    --text-color: #291b39;
 
 
 }
 [data-theme="lilac"] header {
 
-    --bg-color: #81663e;
-    --text-color: #f5f9fa;
+    --bg-color: #ede194;
+    --text-color: #291b39;
 
 
 }
 
 [data-theme="lilac"] div.optie {
 
-    --bg-color: #81663e;
-    --text-color: #f5f9fa;
+    --bg-color: #ede194;
+    --text-color: #291b39;
 
 
 }
 [data-theme="lilac"] div.optie {
 
-    --bg-color: #81663e;
-    --text-color: #fff8e5;
+    --bg-color: #ede194;
+    --text-color: #291b39;
 
 
 }
 [data-theme="lilac"] #tripCounter {
 
-    --bg-color: #81663e;
+    --bg-color: #291b39;
+    --text-color: #ede194;
+
+
+}
+
+[data-theme="lilac"] section#transfer {
+    --bg-color: #291b39;
+    --text-color: #ede194;
+}
+
+[data-theme="lilac"] div.richting, #timeDiv {
+
+    --bg-color: #ed94ac;
     --text-color: #f5f9fa;
 
 
 }
 
-[data-theme="lilac"] p {
-
-    --bg-color: #81663e;
-    --text-color: #f5f9fa;
-
-
-}
 
 
 /*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
@@ -268,12 +275,15 @@ textarea::placeholder {
 }
 [data-theme="yellow"] #tripCounter {
 
-    --bg-color: #CC6677;
+
     --text-color: #011004;
 
 
 }
-
+[data-theme="yellow"] section#transfer {
+    --bg-color: #CC6677;
+    --text-color: #011004;
+}
 
 
 /*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
@@ -338,10 +348,14 @@ textarea::placeholder {
 }
 [data-theme="green"] #tripCounter {
 
-    --bg-color: #2b7c23;
+
     --text-color: #fff2a0;
 
 
+}
+[data-theme="green"] section#transfer {
+    --bg-color: #fff2a0;
+    --text-color: #206719;
 }
 
 
@@ -371,6 +385,32 @@ textarea::placeholder {
 
 }
 
+[data-theme="high-contrast"] div.optie {
+
+    --bg-color: #FFA500;
+    --text-color: #000000;
+
+
+}
+[data-theme="high-contrast"] div.optie {
+
+    --bg-color: #FFA500;
+    --text-color: #000000;
+
+
+}
+[data-theme="high-contrast"] #tripCounter {
+
+    --text-color: #faf6f6;
+
+
+}
+
+[data-theme="high-contrast"] section#transfer {
+
+    --text-color: #faf6f6;
+}
+
 
 
 
@@ -390,7 +430,8 @@ body {
 /* Form elements */
 .route, .time, select, button, textarea, .test-class,
 #startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, .zoeken button, settings-button, a,
-header, div.optie, #nextButton, #prevButton, #tripCounter, .next-transfer-block, .route-header,header.header-overview
+ div.optie, #nextButton, #prevButton, #tripCounter, .next-transfer-block, div.richting, h3
+    , section#transfer
 
  {
 
@@ -409,13 +450,13 @@ header, div.optie, #nextButton, #prevButton, #tripCounter, .next-transfer-block,
 }
 
 /* Form elements */
- div.time,.next-transfer-title, #travelOptions, .trein, .duratie {
+ div.time,.next-transfer-title, #travelOptions, .trein, .duratie,  header.header-overview,
+ div.train_div, route-header, info-train {
 
     border: 2px transparent var(--border-color);
      font-family: var(--font-family);
      font-size: calc(var(--font-size) * 0.9);
      padding: calc(var(--input-padding) * 0.8);
-
      border-radius: 10px;
      background-color: var(--bg-color);
      color: var(--text-color);

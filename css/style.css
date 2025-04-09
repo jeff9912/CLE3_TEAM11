@@ -28,8 +28,8 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 15vh;
-    min-width: 70vw;
+    min-width: 478.41px;
+    max-width:478.41px;
     border-style: solid;
     text-decoration: none;
     text-align: center;
@@ -55,8 +55,8 @@ form {
 }
 
 label#label-time, label#label-datum {
-    min-width: 70vw;
-    min-height: 5vh;
+    min-width: 478.41px;
+    max-width:478.41px;
     margin-bottom: 2px;
     display: flex;
     text-align: center;
@@ -73,8 +73,8 @@ input#tijd, input#datum{
 
 
 #tijd, #datum {
-    min-width: 70vw;
-    min-height: 7vh;
+    min-width: 478.41px;
+    max-width:478.41px;
     margin-top: 0px;
 }
 
@@ -111,6 +111,12 @@ input#tijd, input#datum{
     align-items: center;
 }
 
-.a-button{
-    margin-top: 50vh;
+section.a-button{
+    margin-top: 10vh;
+
+}
+
+a.a-button {
+    min-width: 478.41px;
+    max-width:478.41px;
 }
