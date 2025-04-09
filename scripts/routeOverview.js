@@ -138,12 +138,38 @@ function showCurrentTrip() {
     let optionsContainer = document.querySelector("#travelOptions");
     optionsContainer.innerHTML = "";
 
+    // let transferContainer = document.querySelector("#transfer");
+    // transferContainer.innerHTML = "";
+
     let trip = allTrips[currentTripIndex];
     let card = createTripCard(trip);
     optionsContainer.appendChild(card);
 
+    // let transferCard = createTransferCard(trip);
+    // transferContainer.appendChild(transferCard);
+
     updateTripCounter();
 }
+
+// function createTransferCard(trip) {
+//     const transferCard = document.createElement("div");
+//     transferCard.classList.add("optie");
+//     // Reisinformatie
+//     const firstTransfer = document.createElement("div");
+//     firstTransfer.classList.add("firstTransfer");
+//     firstTransfer.innerHTML = `
+//         <div>
+//             <p>Overstap</p>
+//         </div>
+//         <div>
+//             <p>${trips.legs + 1}: ${depStation} ➞ ${arrStation}</p>
+//         </div>
+//     `;
+//
+//     transferCard.appendChild(firstTransfer);
+//
+//     return transferCard;
+// }
 
 
 function createTripCard(trip) {
