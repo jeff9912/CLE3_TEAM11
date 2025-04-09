@@ -155,7 +155,7 @@ function createTripCard(trip) {
         const trackArr = train.destination.plannedTrack || "-";
 
         legDiv.innerHTML = `
-            <h4>${trainName} richting ${train.direction}</h4>
+            <h3>${trainName} richting ${train.direction}</h3>
             <p>Vertrek: ${from} om ${departure} op spoor ${trackDep}</p>
             <p>Aankomst: ${to} om ${arrival} op spoor ${trackArr}</p>
         `;

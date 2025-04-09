@@ -138,38 +138,36 @@ function showCurrentTrip() {
     let optionsContainer = document.querySelector("#travelOptions");
     optionsContainer.innerHTML = "";
 
-    // let transferContainer = document.querySelector("#transfer");
-    // transferContainer.innerHTML = "";
+    let transferContainer = document.querySelector("#transfer");
+    transferContainer.innerHTML = "";
 
     let trip = allTrips[currentTripIndex];
     let card = createTripCard(trip);
     optionsContainer.appendChild(card);
 
-    // let transferCard = createTransferCard(trip);
-    // transferContainer.appendChild(transferCard);
+    let transferCard = createTransferCard(trip);
+    transferContainer.appendChild(transferCard);
 
     updateTripCounter();
 }
 
-// function createTransferCard(trip) {
-//     const transferCard = document.createElement("div");
-//     transferCard.classList.add("optie");
-//     // Reisinformatie
-//     const firstTransfer = document.createElement("div");
-//     firstTransfer.classList.add("firstTransfer");
-//     firstTransfer.innerHTML = `
-//         <div>
-//             <p>Overstap</p>
-//         </div>
-//         <div>
-//             <p>${trips.legs + 1}: ${depStation} ➞ ${arrStation}</p>
-//         </div>
-//     `;
-//
-//     transferCard.appendChild(firstTransfer);
-//
-//     return transferCard;
-// }
+function createTransferCard(trip) {
+    const transferCard = document.createElement("div");
+    transferCard.classList.add("optie");
+
+    const depStation = trip.legs[0].origin.name;
+    const arrStation = trip.legs[trip.legs.length - 1].destination.name;
+
+    const transfers = document.createElement("div");
+    transfers.innerHTML = `
+        <h3>Overstappen</h3>
+        <p>${trip.legs.length - 1} overstap(pen) van ${depStation} naar ${arrStation}</p>
+    `;
+
+    transferCard.appendChild(transfers);
+
+    return transferCard;
+}
 
 
 function createTripCard(trip) {
