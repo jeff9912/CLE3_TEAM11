@@ -7,6 +7,9 @@
     --border-color: #757575;
     --input-bg-color: #757575;
     --placeholder-color:#757575;
+    --header-color: #f1f6f6;
+
+
 
     /* Font variables */
     --font-size: 16px;
@@ -32,6 +35,8 @@ textarea::placeholder {
     --primary-color: #8ab4f8;
     --border-color: #c1baba;
     --placeholder-color: #f1ecec;
+    --header-color: #f1f6f6;
+
 }
 /*/////////////////////////////////         BLUE                   ///////////////////////////////////////////////////////*/
 
@@ -50,10 +55,59 @@ textarea::placeholder {
 
 
 
-[data-theme="blue"] button {
+[data-theme="blue"] button{
     --bg-color: #58a0e1;
     --text-color: #010d17;
 }
+
+
+/*overview*/
+
+[data-theme="blue"] .next-transfer-block {
+
+    --bg-color: #58a0e1;
+    --text-color: #020e19;
+
+
+}
+[data-theme="blue"] header {
+
+    --bg-color: #58a0e1;
+    --text-color: #020e19;
+
+
+}
+
+[data-theme="blue"] div.optie {
+
+    --bg-color: #58a0e1;
+    --text-color: #020e19;
+
+
+}
+[data-theme="blue"] div.optie {
+
+    --bg-color: #58a0e1;
+    --text-color: #020e19;
+
+
+}
+[data-theme="blue"] #tripCounter {
+
+    --bg-color: #58a0e1;
+    --text-color: #020e19;
+
+
+}
+
+[data-theme="blue"] p {
+
+    --bg-color: #58a0e1;
+    --text-color: #020e19;
+
+
+}
+
 
 /*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
 
@@ -64,27 +118,75 @@ textarea::placeholder {
     --primary-color: #504f2b;
     --border-color: #fff2a0;
     --placeholder-color: #1c1601;
+    --header-color: #d3a96c;
 
 }
 
 [data-theme="lilac"] input{
-    --bg-color: #fff2a0;
+    --bg-color: #d3a96c;
     --text-color: #1c1601;
 
 
 }
 
 [data-theme="lilac"] button {
-    --bg-color: #fff2a0;
-    --text-color: #1c1601;
+    --bg-color: #81663e;
+    --text-color: #f5f9fa;
     --border-color: #fff2a0;;
 
 }
 
 [data-theme="lilac"] #settings-button-id {
     --bg-color: #88CCEE;
-    --text-color: #1c1601;
+    --text-color: #f5f9fa;
     --border-color: #fff2a0;;
+
+}
+
+/*overview*/
+
+[data-theme="lilac"] .next-transfer-block {
+
+    --bg-color: #81663e;
+    --text-color: #f5f9fa;
+
+
+}
+[data-theme="lilac"] header {
+
+    --bg-color: #81663e;
+    --text-color: #f5f9fa;
+
+
+}
+
+[data-theme="lilac"] div.optie {
+
+    --bg-color: #81663e;
+    --text-color: #f5f9fa;
+
+
+}
+[data-theme="lilac"] div.optie {
+
+    --bg-color: #81663e;
+    --text-color: #fff8e5;
+
+
+}
+[data-theme="lilac"] #tripCounter {
+
+    --bg-color: #81663e;
+    --text-color: #f5f9fa;
+
+
+}
+
+[data-theme="lilac"] p {
+
+    --bg-color: #81663e;
+    --text-color: #f5f9fa;
+
 
 }
 
@@ -113,6 +215,45 @@ textarea::placeholder {
 
 }
 
+/*overview*/
+[data-theme="yellow"] .next-transfer-block {
+
+    --bg-color: #CC6677;
+    --text-color: #0f1d21;
+
+
+}
+[data-theme="yellow"] header {
+
+    --bg-color: #CC6677;
+    --text-color: #011004;
+
+
+}
+[data-theme="yellow"] div.optie {
+
+    --bg-color: #CC6677;
+    --text-color: #011004;
+
+
+}
+[data-theme="yellow"] div.optie {
+
+    --bg-color: #CC6677;
+    --text-color: #011004;
+
+
+}
+[data-theme="yellow"] #tripCounter {
+
+    --bg-color: #CC6677;
+    --text-color: #011004;
+
+
+}
+
+
+
 /*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
 
 
@@ -125,6 +266,8 @@ textarea::placeholder {
     --placeholder-color:#e6e4ba;
 
 }
+
+
 
 [data-theme="green"] input, center_container zoeken{
     --bg-color: #2b7c23;
@@ -142,6 +285,44 @@ textarea::placeholder {
 
 }
 
+/*overview*/
+[data-theme="green"] .next-transfer-block {
+
+    --bg-color: #2b7c23;
+    --text-color: #fff2a0;
+
+
+}
+[data-theme="green"] header {
+
+    --bg-color: #2b7c23;
+    --text-color: #fff2a0;
+
+
+}
+[data-theme="green"] div.optie {
+
+    --bg-color: #2b7c23;
+    --text-color: #fff2a0;
+
+
+}
+[data-theme="green"] div.optie {
+
+    --bg-color: #2b7c23;
+    --text-color: #fff2a0;
+
+
+}
+[data-theme="green"] #tripCounter {
+
+    --bg-color: #2b7c23;
+    --text-color: #fff2a0;
+
+
+}
+
+
 /*/////////////////////////////////                            ///////////////////////////////////////////////////////*/
 
 [data-theme="high-contrast"] {
@@ -153,10 +334,9 @@ textarea::placeholder {
 
 }
 
-[data-theme="high-contrast"] input, center_container zoeken{
+[data-theme="high-contrast"] input, center_container zoeken {
     --bg-color: #FFA500;
     --text-color: #000000;
-
 }
 
 
@@ -168,6 +348,7 @@ textarea::placeholder {
     --zoeken-color: #FFA500;
 
 }
+
 
 
 
@@ -186,7 +367,10 @@ body {
 
 /* Form elements */
 .route, .time, select, button, textarea, .test-class,
-#startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, .zoeken button, settings-button, a {
+#startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, .zoeken button, settings-button, a,
+header, div.optie, #nextButton, #prevButton, #tripCounter, .next-transfer-block, .route-header,header.header-overview
+
+ {
 
     font-family: var(--font-family);
     font-size: calc(var(--font-size) * 0.9);
@@ -198,9 +382,23 @@ body {
 
     margin: 1vh 0;
     width: 100%;
-    max-width: 40vw;
-    box-sizing: border-box;
+    /*max-width: 40vw;*/
+    /*box-sizing: border-box;*/
 }
 
+/* Form elements */
+ div.time,.next-transfer-title, #travelOptions, .trein, .duratie {
 
-/*///////////////////////////////////////////////////////  style  ///////////////////////////*/
+    border: 2px transparent var(--border-color);
+     font-family: var(--font-family);
+     font-size: calc(var(--font-size) * 0.9);
+     padding: calc(var(--input-padding) * 0.8);
+
+     border-radius: 10px;
+     background-color: var(--bg-color);
+     color: var(--text-color);
+
+     margin: 1vh 0;
+     width: 100%;
+}
+
