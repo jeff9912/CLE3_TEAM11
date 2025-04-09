@@ -42,10 +42,10 @@ main {
     padding: 0 25px 25px 25px; /* Verwijder padding aan bovenkant */
 }
 
-/* Volgende overstap blok */
-.next-transfer-block {
+/* Stijl voor de overstappen optie */
+.optie {
     background-color: #e0e0e0;
-    border-radius: 8px; /* Afgeronde hoeken rondom */
+    border-radius: 8px;
     padding: 15px;
     margin: 0 0 20px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -53,12 +53,7 @@ main {
     border-left: 5px solid #003082; /* NS blauwe rand links */
 }
 
-.next-transfer-title {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    color: #003082;
-}
+
 
 .next-transfer-info {
     font-size: 1.3rem;
