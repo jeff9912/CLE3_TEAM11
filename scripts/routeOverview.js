@@ -193,8 +193,8 @@ function createTripCard(trip) {
     timeDiv.classList.add("time");
     timeDiv.innerHTML = `
         <h2>${departureTime} ➞ ${arrivalTime}</h2>
-        <p>Vertrek perron: ${departurePlatform}</p>
-        <p>Aankomst perron: ${arrivalPlatform}</p>
+        <p>Vertrek perron: <b>${departurePlatform}</b> </p>
+        <p>Aankomst perron: <b>${arrivalPlatform}</b></p>
     `;
 
     // Soort trein
@@ -207,10 +207,10 @@ function createTripCard(trip) {
     info.classList.add("info");
     info.innerHTML = `
         <div>
-            <p class="duratie">${trip.actualDurationInMinutes} minuten</p>
+            <p class="duratie"><b>${trip.actualDurationInMinutes}</b> minuten</p>
         </div>
         <div>
-            <p>${trip.legs.length - 1} overstap(pen)</p>
+            <p><b>${trip.legs.length - 1} </b> overstap(pen)</p>
         </div>
     `;
 
