@@ -139,14 +139,19 @@ function showCurrentTrip() {
     optionsContainer.innerHTML = "";
 
     let transferContainer = document.querySelector("#transfer");
-    transferContainer.innerHTML = "";
 
     let trip = allTrips[currentTripIndex];
     let card = createTripCard(trip);
     optionsContainer.appendChild(card);
 
-    let transferCard = createTransferCard(trip);
-    transferContainer.appendChild(transferCard);
+    if (trip.legs.length > 1) {
+        transferContainer.style.display = "block"; // laat zien
+        transferContainer.innerHTML = ""; // maak leeg
+        let transferCard = createTransferCard(trip);
+        transferContainer.appendChild(transferCard);
+    } else {
+        transferContainer.style.display = "none"; // verberg
+    }
 
     updateTripCounter();
 }
