@@ -118,22 +118,22 @@ function createTripCard(trip) {
     // Tijd weergave
     const timeDiv = document.createElement("div");
     timeDiv.classList.add("time");
-    timeDiv.innerHTML = `<h3>${departureTime} ➞ ${arrivalTime}</h3>`;
+    timeDiv.innerHTML = `<h3><b>${departureTime}</b> ➞ <b>${arrivalTime}</b></h3>`;
 
     // Soort trein
     const trainDiv = document.createElement("div");
     trainDiv.classList.add("train_div");
-    trainDiv.innerHTML = `<p class="trein">${trip.legs[0].product.displayName}</p>`;
+    trainDiv.innerHTML = `<p class="trein"><b>${trip.legs[0].product.displayName}</b></p>`;
 
     // Reisinformatie
     const info = document.createElement("div");
     info.classList.add("info");
     info.innerHTML = `
         <div>
-            <p class="duratie">${trip.actualDurationInMinutes} minuten</p>
+            <p class="duratie"><b>${trip.actualDurationInMinutes}</b> minuten</p>
         </div>
         <div>
-            <p>${trip.legs.length - 1} overstap(pen)</p>
+            <p><b>${trip.legs.length - 1}</b> overstap(pen)</p>
         </div>
     `;
 
@@ -155,9 +155,9 @@ function createTripCard(trip) {
         const trackArr = train.destination.plannedTrack || "-";
 
         legDiv.innerHTML = `
-            <h3>${trainName} richting ${train.direction}</h3>
-            <p>Vertrek: ${from} om ${departure} op spoor ${trackDep}</p>
-            <p>Aankomst: ${to} om ${arrival} op spoor ${trackArr}</p>
+            <h3><b>${trainName}</b> richting <b>${train.direction}</b></h3>
+            <p>Vertrek: <b>${from}</b> om <b>${departure}</b> op spoor <b>${trackDep}</b></p>
+            <p>Aankomst: <b>${to}</b> om <b>${arrival}</b> op spoor <b>${trackArr}</b></p>
         `;
 
         if (train.stops && train.stops.length > 2) {
@@ -185,7 +185,7 @@ function createTripCard(trip) {
 
         if (i < trip.legs.length - 1) {
             const transferTime = train.transferTimeToNextLeg || "-";
-            legDiv.innerHTML += `<p class="overstap">Overstap tijd: ${transferTime} minuten</p>`;
+            legDiv.innerHTML += `<p class="overstap">Overstap tijd: <b>${transferTime}</b> minuten</p>`;
         }
 
         card.appendChild(legDiv);

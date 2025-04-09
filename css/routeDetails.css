@@ -1,0 +1,345 @@
+/* Reset en basis stijlen voor toegankelijkheid */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #000;
+    line-height: 2; /* Verhoogd voor betere leesbaarheid */
+    padding-bottom: 30px;
+    font-size: 20px; /* Vergroot basistekstgrootte voor visueel beperkten */
+}
+
+/* Header stijlen */
+header {
+    background-color: #003082; /* NS blauw */
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+}
+
+/* Stijl voor "➞" pijl in de h2 */
+header h2 span.arrow {
+    display: block;
+    margin-top: 5px;
+}
+
+/* Route header styling */
+.route-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.richting {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.trein-nummer {
+    font-size: 1.2rem;
+}
+
+.volgende {
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Main content stijlen */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 25px 25px 25px;
+}
+
+/* Reisopties stijlen */
+#travelOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+/* Stijl voor individuele reisopties */
+.optie {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #ddd;
+}
+
+/* Tijdweergave in reisopties - verbeterd voor visueel beperkten */
+.time {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: #e0e8f5;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.time h3 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #003082;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Treininformatie */
+.train_div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.train_div .trein {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Reis-informatie (duur en overstappen) - verbeterd voor visueel beperkten */
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    border-top: 3px solid #d0d0d0;
+    border-bottom: 3px solid #d0d0d0;
+    padding: 20px 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 8px 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.info p {
+    font-size: 1.4rem;
+    color: #003082;
+    font-weight: bold;
+}
+
+/* Leg details styling - Verbeterde leesbaarheid voor visueel beperkten */
+.leg {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    border-left: 6px solid #003082;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.leg h3 {
+    color: #003082;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+    background-color: #e0e8f5;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.leg p {
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+/* Vertrek en aankomst informatie - verbeterd voor visueel beperkten */
+.leg p:nth-child(2), .leg p:nth-child(3) {
+    font-weight: bold;
+    padding: 12px;
+    background-color: #d0e0f7; /* Donkerder blauw voor beter contrast */
+    border-radius: 8px;
+    border: 2px solid #003082;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+/* Tussenstops styling - verbeterd voor visueel beperkten */
+.leg p:nth-child(4) {
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #003082;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stops {
+    list-style-type: none;
+    margin: 15px 0;
+    padding-left: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.stops li {
+    position: relative;
+    padding: 12px 0 12px 35px;
+    border-left: 3px dashed #003082;
+    margin-left: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.stops li:before {
+    content: "•";
+    position: absolute;
+    left: -8px;
+    color: #003082;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.stops li:last-child {
+    border-left: none;
+}
+
+/* Overstap styling - verbeterd voor visueel beperkten */
+.overstap {
+    background-color: #fff0d0;
+    padding: 15px;
+    border-radius: 8px;
+    border: 3px solid #FFC917;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #663c00; /* Donkerder tekst voor beter contrast op de gele achtergrond */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Navigatieknoppen stijlen */
+#navigationButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    background-color: #003082;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #002266;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+button:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+button:focus {
+    outline: 3px solid #FFC917;
+    outline-offset: 3px;
+}
+
+/* Foutmeldingen */
+.error, #errorContainer {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #ffcccc;
+    color: #990000;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    border: 2px solid #cc0000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#errorContainer {
+    display: none;
+}
+
+#errorContainer.visible {
+    display: block;
+}
+
+/* Responsieve aanpassingen */
+@media (max-width: 700px) {
+    header {
+        padding: 15px;
+    }
+
+    header h2 {
+        font-size: 1.4rem;
+    }
+
+    .time h3 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 0 15px 20px 15px;
+    }
+
+    .optie {
+        padding: 15px;
+    }
+
+    .leg {
+        padding: 12px;
+    }
+
+    #navigationButtons {
+        margin-top: 20px;
+    }
+}
+
+/* Extra aanpassingen voor visuele toegankelijkheid */
+a:focus, input:focus, select:focus {
+    outline: 3px solid #FFC917;
+    outline-offset: 3px;
+}
+
+/* Betere zichtbaarheid van focussable elementen */
+a, button, input, select, [tabindex]:not([tabindex="-1"]) {
+    transition: outline-offset 0.2s linear;
+}
