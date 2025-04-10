@@ -465,4 +465,55 @@ body {
      width: 100%;
 }
 
+/* Update to routeDetails.css */
 
+/* Update to routeDetails.css */
+
+/* Replace this in routeDetails.css */
+header {
+    background-color: var(--bg-color, #003082); /* Use CSS variable with fallback */
+    color: var(--text-color, white); /* Use CSS variable with fallback */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Match shadow style from .optie */
+    text-align: center;
+    margin-bottom: 20px;
+    width: calc(100% - 50px); /* Account for main's padding */
+    max-width: 850px; /* 900px - 50px padding */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px; /* Add rounded corners */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+header h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    color: var(--text-color, white); /* Add this line to ensure text color changes too */
+}
+
+/* Optional: You might also want to update the theme overrides in settings.css to be more specific */
+/* Add these overrides to settings.css */
+[data-theme="blue"] .time h3,
+[data-theme="blue"] .time h3 b {
+    color: var(--text-color) !important;
+}
+
+[data-theme="lilac"] .time h3,
+[data-theme="lilac"] .time h3 b {
+    color: var(--text-color) !important;
+}
+
+[data-theme="yellow"] .time h3,
+[data-theme="yellow"] .time h3 b {
+    color: var(--text-color) !important;
+}
+
+[data-theme="green"] .time h3,
+[data-theme="green"] .time h3 b {
+    color: var(--text-color) !important;
+}
+
+[data-theme="high-contrast"] .time h3,
+[data-theme="high-contrast"] .time h3 b {
+    color: var(--text-color) !important;
+}

@@ -14,21 +14,16 @@ body {
     font-size: 20px; /* Vergroot basistekstgrootte voor visueel beperkten */
 }
 
-/* Header stijlen */
 header {
-    background-color: #003082; /* NS blauw */
-    color: white;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    text-align: center;
-    margin-bottom: 20px;
+    background-color: var(--bg-color, #003082); /* Use variable with fallback */
+    color: var(--text-color, white); /* Use variable with fallback */
+    /* other styles */
 }
 
 header h2 {
-    font-size: 1.6rem;
-    line-height: 1.3;
+    /* existing styles */
+    color: var(--text-color, white); /* Add this line */
 }
-
 /* Stijl voor "➞" pijl in de h2 */
 header h2 span.arrow {
     display: block;
@@ -82,21 +77,22 @@ main {
     border: 1px solid #ddd;
 }
 
-/* Tijdweergave in reisopties - verbeterd voor visueel beperkten */
+
 .time {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-bottom: 20px;
-    background-color: #e0e8f5;
+    background-color: var(--bg-color, #e0e8f5); /* Use CSS variable with fallback */
     padding: 15px;
     border-radius: 10px;
 }
 
+/* Replace this in routeDetails.css */
 .time h3 {
     font-size: 2.4rem;
     font-weight: bold;
-    color: #003082;
+    color: var(--text-color, #003082); /* Use CSS variable with fallback */
     text-align: center;
     line-height: 1.4;
     text-shadow: 0 1px 1px rgba(0,0,0,0.1);
