@@ -26,6 +26,7 @@ select#font-family option {
     --bg-color: #f1f6f6;
     --text-color: #020202;
     --primary-color: #006cdc;
+    --primary-color-rgb: 0, 108, 220;
     --border-color: #757575;
     --input-bg-color: #aeabab;
     --placeholder-color: #b5b1b1;
@@ -56,6 +57,7 @@ textarea::placeholder {
     --bg-color: #232323;
     --text-color: #f1ecec;
     --primary-color: #8ab4f8;
+    --primary-color-rgb: 138, 180, 248;
     --border-color: #c1baba;
     --placeholder-color: #f1ecec;
     --header-color: #f1f6f6;
@@ -67,6 +69,7 @@ textarea::placeholder {
     --bg-color: #e6f0ff;
     --text-color: #131001;
     --primary-color: #0066cc;
+    --primary-color-rgb: 0, 102, 204;
     --border-color: #99c2ff;
     --placeholder-color: #000000;
 }
@@ -139,6 +142,7 @@ textarea::placeholder {
     --bg-color: #291b39;
     --text-color: #dccfa3;
     --primary-color: #504f2b;
+    --primary-color-rgb: 80, 79, 43;
     --border-color: #fff2a0;
     --placeholder-color: #1c1601;
     --header-color: #ede194;
@@ -227,6 +231,7 @@ textarea::placeholder {
     --text-color: #062c0d;
     --border-color: #CC6677;
     --primary-color: #CC6677;
+    --primary-color-rgb: 204, 102, 119;
     --placeholder-color: #062c0d;
 }
 
@@ -295,7 +300,8 @@ textarea::placeholder {
     --text-color: #e6e4ba;
     --border-color: #2a4c20;
     --primary-color: #337521;
-    --placeholder-color:#e6e4ba;
+    --primary-color-rgb: 51, 117, 33;
+    --placeholder-color: #e6e4ba;
 
 }
 
@@ -366,6 +372,7 @@ textarea::placeholder {
     --text-color: #fbf9f9;
     --border-color: #FFA500;
     --primary-color: #4169E1;
+    --primary-color-rgb: 65, 105, 225;
     --placeholder-color: #314da3;
 
 }
@@ -412,10 +419,6 @@ textarea::placeholder {
 }
 
 
-
-
-
-
 /* Base styles */
 body {
     background-color: var(--bg-color);
@@ -425,15 +428,17 @@ body {
     margin: 0;
     padding: 20px;
     transition: all 0.3s ease;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* Form elements */
 .route, .time, select, button, textarea, .test-class,
 #startpunt, #eindpunt, #label-time, #label-datum, #tijd, #datum, .zoeken button, settings-button, a,
- div.optie, #nextButton, #prevButton, #tripCounter, .next-transfer-block, div.richting, h3
-    , section#transfer
+div.optie, #nextButton, #prevButton, #tripCounter, .next-transfer-block, div.richting, h3
+, section#transfer
 
- {
+{
 
     font-family: var(--font-family);
     font-size: calc(var(--font-size) * 0.9);
@@ -445,27 +450,23 @@ body {
 
     margin: 1vh 0;
     width: 100%;
-    /*max-width: 40vw;*/
-    /*box-sizing: border-box;*/
 }
 
 /* Form elements */
- div.time,.next-transfer-title, #travelOptions, .trein, .duratie,  header.header-overview,
- div.train_div, route-header, info-train {
+div.time,.next-transfer-title, #travelOptions, .trein, .duratie,  header.header-overview,
+div.train_div, route-header, info-train {
 
     border: 2px transparent var(--border-color);
-     font-family: var(--font-family);
-     font-size: calc(var(--font-size) * 0.9);
-     padding: calc(var(--input-padding) * 0.8);
-     border-radius: 10px;
-     background-color: var(--bg-color);
-     color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: calc(var(--font-size) * 0.9);
+    padding: calc(var(--input-padding) * 0.8);
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 
-     margin: 1vh 0;
-     width: 100%;
+    margin: 1vh 0;
+    width: 100%;
 }
-
-/* Update to routeDetails.css */
 
 /* Update to routeDetails.css */
 
@@ -491,8 +492,7 @@ header h2 {
     color: var(--text-color, white); /* Add this line to ensure text color changes too */
 }
 
-/* Optional: You might also want to update the theme overrides in settings.css to be more specific */
-/* Add these overrides to settings.css */
+/* Thema kleuren voor tijdweergave */
 [data-theme="blue"] .time h3,
 [data-theme="blue"] .time h3 b {
     color: var(--text-color) !important;
@@ -516,4 +516,206 @@ header h2 {
 [data-theme="high-contrast"] .time h3,
 [data-theme="high-contrast"] .time h3 b {
     color: var(--text-color) !important;
+}
+
+/* Verbeterde styling voor de settings pagina */
+
+/* Titel styling */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    color: var(--text-color);
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+/* Main container styling */
+main {
+    width: 95%;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Controls container */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+/* Thema opties sectie */
+.theme-options {
+    background-color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* Radio buttons container */
+.font-family {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Styling voor radio button labels */
+.font-family label {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.font-family label:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Verbeterde radio buttons */
+.font-family input[type="radio"] {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Font size sectie */
+.font-size-section, div:has(> #font-size) {
+    background-color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* Font size label */
+.font-size-section label, div:has(> #font-size) label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+/* Font size waarde weergave */
+#font-size-value {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Font size slider */
+#font-size {
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Font family sectie */
+.font-family-section, div:has(> #font-family) {
+    background-color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* Font family label */
+.font-family-section label, div:has(> #font-family) label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+/* Font family dropdown */
+#font-family {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#font-family option {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Home link styling */
+.home-button-container, div:has(> a[href="index.html"]) {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.home-button, a[href="index.html"] {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--primary-color, #006cdc);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.home-button:hover, a[href="index.html"]:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Themaselectie indicator - dit zorgt voor visuele feedback op de geselecteerde optie */
+.font-family input[type="radio"]:checked + span {
+    font-weight: bold;
+}
+
+.font-family label:has(> input[type="radio"]:checked) {
+    background-color: rgba(var(--primary-color-rgb, 0, 108, 220), 0.3);
+    border-left: 4px solid var(--primary-color, #006cdc);
+}
+
+/* Media queries voor responsiviteit */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .font-family label {
+        font-size: 1.1rem;
+    }
+
+    .home-button, a[href="index.html"] {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+    }
 }

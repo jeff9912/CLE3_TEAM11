@@ -1,62 +1,62 @@
 /*VERANDER DE CONTRASTEN LATER */
 
-
 * {
     margin: auto;
     color: black;
 }
 
-
 body {
     padding: 2vh 0;
+    max-width: 100%;
+    overflow-x: hidden; /* Voorkom horizontaal scrollen */
 }
 
 form {
     display: flex;
     justify-content: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .center_container {
     display: flex;
     justify-content: center;
     text-align: center;
-
+    width: 100%;
+    max-width: 100%;
 }
 
-
+/* Vergroot de breedte van de input elementen */
 .vertrek_eind input {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 478.41px;
-    max-width:478.41px;
+    width: 95%; /* Vergroot van 90% naar 95% */
+    max-width: 95%; /* Vergroot van 90% naar 95% */
+    min-width: unset;
     border-style: solid;
     text-decoration: none;
     text-align: center;
     font-size: 1.5rem;
-
-    text-align: center;
-
 }
-
 
 #pijltjes_vertrek_eind {
     height: 10vh;
-
-
 }
-
 
 .tijd_sectie {
     margin-top: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
+/* Vergroot de breedte van de labels */
 label#label-time, label#label-datum {
-    min-width: 478.41px;
-    max-width:478.41px;
+    width: 95%; /* Vergroot van 90% naar 95% */
+    max-width: 95%; /* Vergroot van 90% naar 95% */
+    min-width: unset;
     margin-bottom: 2px;
     display: flex;
     text-align: center;
@@ -64,17 +64,20 @@ label#label-time, label#label-datum {
     align-items: center;
     justify-content: center;
 }
-label#label-datum{
+
+label#label-datum {
     margin-top: 10vh;
 }
-input#tijd, input#datum{
+
+input#tijd, input#datum {
     margin-top: 0px;
 }
 
-
+/* Vergroot de breedte van tijd en datum inputs */
 #tijd, #datum {
-    min-width: 478.41px;
-    max-width:478.41px;
+    width: 95%; /* Vergroot van 90% naar 95% */
+    max-width: 95%; /* Vergroot van 90% naar 95% */
+    min-width: unset;
     margin-top: 0px;
 }
 
@@ -82,26 +85,29 @@ input#tijd, input#datum{
     font-weight: bold;
     font-size: 2rem;
     border: black solid;
-    padding: 1vh 30vw;
+    padding: 1vh 10vw;
 }
 
 .tijd_sectie input {
     margin-top: 1vh;
-    width: 40vw;
+    width: 95%; /* Vergroot van 90% naar 95% */
     height: 5vh;
 }
-
 
 .zoeken {
     padding-top: 4vh;
     font-size: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
+/* Vergroot de breedte van de zoeken button */
 .zoeken button {
-    padding: 3vh 10vw;
+    padding: 3vh 5vw;
     border-radius: 1vw;
-
-
+    width: 95%; /* Vergroot van 90% naar 95% */
+    max-width: 95%; /* Vergroot van 90% naar 95% */
 }
 
 .settings-button {
@@ -109,14 +115,69 @@ input#tijd, input#datum{
     justify-content: center;
     align-content: center;
     align-items: center;
+    width: 100%;
 }
 
-section.a-button{
+section.a-button {
     margin-top: 10vh;
-
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
+/* Vergroot de breedte van de a-button */
 a.a-button {
-    min-width: 478.41px;
-    max-width:478.41px;
+    width: 95%; /* Vergroot van 90% naar 95% */
+    max-width: 95%; /* Vergroot van 90% naar 95% */
+    min-width: unset;
+    display: block;
+    text-align: center;
+}
+
+/* Media queries voor verschillende schermgroottes */
+@media screen and (min-width: 768px) {
+    /* Voor tablets en grotere apparaten */
+    .vertrek_eind input,
+    label#label-time,
+    label#label-datum,
+    #tijd,
+    #datum,
+    .zoeken button,
+    a.a-button {
+        width: 90%; /* Vergroot van 80% naar 90% voor consistent uiterlijk */
+        max-width: 550px; /* Vergroot van 478.41px naar 550px voor consistentie met overview */
+    }
+
+    .tijd_sectie label {
+        padding: 1vh 15vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Voor kleinere mobiele schermen */
+    .vertrek_eind input,
+    label#label-time,
+    label#label-datum,
+    #tijd,
+    #datum,
+    .zoeken button,
+    a.a-button {
+        width: 95%; /* Zorg dat alles consistent is, ook op kleinere schermen */
+        max-width: 95%;
+    }
+
+    .tijd_sectie label {
+        font-size: 1.5rem;
+        padding: 1vh 5vw;
+        width: 95%;
+        max-width: 95%;
+    }
+
+    .zoeken {
+        font-size: 1.5rem;
+    }
+
+    .zoeken button {
+        padding: 2vh 3vw;
+    }
 }
