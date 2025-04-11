@@ -1,79 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-  <title>Router Planning App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instellingen - Route Planner</title>
   <link rel="stylesheet" href="css/settings.css" id="main-stylesheet">
   <script type="text/javascript" src="scripts/settings.js" defer></script>
-
 </head>
 <body>
 <h1>Instellingen</h1>
 <main>
   <div class="controls">
-
-    <!-- Replace the old <select> with this radio group -->
-
+    <!-- Thema sectie met betere structuur -->
     <div class="theme-options">
-      <h3>thema selecteren:</h3>
-    <div class="font-family">
-      <label>
-        <input type="radio" name="theme" value="default" checked> Default
-      </label>
+      <h3>Thema selecteren:</h3>
+      <div class="font-family">
+        <label>
+          <input type="radio" name="theme" value="default"> Default
+        </label>
 
-      <label>
-        <input type="radio" name="theme" value="dark"> Dark Mode
-      </label>
+        <label>
+          <input type="radio" name="theme" value="dark"> Dark Mode
+        </label>
 
-      <label>
-        <input type="radio" name="theme" value="blue"> Blue Theme
-      </label>
+        <label>
+          <input type="radio" name="theme" value="blue"> Blue Theme
+        </label>
 
-      <label>
-        <input type="radio" name="theme" value="lilac"> lilac Theme
-      </label>
+        <label>
+          <input type="radio" name="theme" value="lilac"> Lilac Theme
+        </label>
 
+        <label>
+          <input type="radio" name="theme" value="yellow"> Yellow Theme
+        </label>
 
-    <label>
-      <input type="radio" name="theme" value="yellow" checked> yellow Theme
-    </label>
-    <label>
-      <input type="radio" name="theme" value="green" checked> Green Theme
-    </label>
-    <label>
-      <input type="radio" name="theme" value="high-contrast" checked> hoge contrast
-    </label>
+        <label>
+          <input type="radio" name="theme" value="green"> Green Theme
+        </label>
+
+        <label>
+          <input type="radio" name="theme" value="high-contrast"> Hoge Contrast
+        </label>
+      </div>
     </div>
+
+    <!-- Font size sectie met waarde indicator -->
+    <div class="font-size-section">
+      <label for="font-size">
+        Font Size: <span id="font-size-value">30px</span>
+        <input type="range" id="font-size" min="12" max="50" value="30" step="1">
+      </label>
     </div>
-<div>
-    <label>
-      Font Size:
-      <input type="range" id="font-size" min="12" max="50" value="30" step="0.0001">
-    </label>
+
+    <!-- Font family sectie met betere styling -->
+    <div class="font-family-section">
+      <label for="font-family">
+        Font Family:
+        <select id="font-family">
+          <option value="Arial, sans-serif">Arial</option>
+          <option value="'Courier New', monospace">Courier New</option>
+          <option value="'Times New Roman', serif">Times New Roman</option>
+          <option value="'Georgia', serif">Georgia</option>
+          <option value="'Verdana', sans-serif">Verdana</option>
+          <option value="'Comic Sans MS', cursive">Comic Sans</option>
+          <option value="'Roboto', sans-serif">Roboto</option>
+          <option value="'Open Sans', sans-serif">Open Sans</option>
+          <option value="'Montserrat', sans-serif">Montserrat</option>
+        </select>
+      </label>
+    </div>
   </div>
-    <!-- NEW: Font family selector -->
-    <label>
-      Font Family:
-      <!-- Update your font-family selector -->
-      <select id="font-family">
-        <option value="Arial, sans-serif" style="font-family: Arial, sans-serif">Arial</option>
-        <option value="'Courier New', monospace" style="font-family: 'Courier New', monospace">Courier New</option>
-        <option value="'Times New Roman', serif" style="font-family: 'Times New Roman', serif">Times New Roman</option>
-        <option value="'Georgia', serif" style="font-family: 'Georgia', serif">Georgia</option>
-        <option value="'Verdana', sans-serif" style="font-family: 'Verdana', sans-serif">Verdana</option>
-        <option value="'Comic Sans MS', cursive" style="font-family: 'Comic Sans MS', cursive">Comic Sans</option>
-        <option value="'Roboto', sans-serif" style="font-family: 'Roboto', sans-serif">Roboto</option>
-        <option value="'Open Sans', sans-serif" style="font-family: 'Open Sans', sans-serif">Open Sans</option>
-        <option value="'Montserrat', sans-serif" style="font-family: 'Montserrat', sans-serif">Montserrat</option>
-      </select>
-    </label>
+
+  <!-- Home knop met betere styling -->
+  <div class="home-button-container">
+    <a href="index.html" class="home-button">Terug naar Home</a>
   </div>
-
-  <div>
-    <a href="index.html">Home</a>
-    </div>
-
 </main>
 
+<!-- Script om font-size waarde te tonen tijdens slider gebruik -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fontSizeSlider = document.getElementById('font-size');
+    const fontSizeValue = document.getElementById('font-size-value');
 
+    // Update de waarde bij laden
+    fontSizeValue.textContent = fontSizeSlider.value + 'px';
+
+    // Update de waarde tijdens verschuiven
+    fontSizeSlider.addEventListener('input', function() {
+      fontSizeValue.textContent = this.value + 'px';
+    });
+  });
+</script>
 </body>
 </html>
